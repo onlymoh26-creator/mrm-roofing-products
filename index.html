@@ -5,1153 +5,351 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#092b49">
-
   <meta name="description" content="Explore Mabati Rolling Mills roofing products, roofing sheets, profiles, accessories and request a roofing quotation.">
-
   <title>MABATI ROLLING MILLS</title>
-
   <link rel="stylesheet" href="styles.css">
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
 </head>
-
 <body>
 
-  <!-- HEADER -->
+<header class="site-header" id="home">
+  <div class="container header-inner">
 
-  <header class="site-header" id="home">
-    <div class="container header-inner">
+    <a href="#home" class="brand" aria-label="Mabati Rolling Mills home">
+      <img src="images/mrm-logo.png" alt="MRM logo">
+      <span class="brand-fallback">MABATI ROLLING MILLS</span>
+    </a>
 
-      <a href="#home" class="brand">
-        <img src="images/mrm-logo.png" alt="MRM logo">
-        <span class="brand-fallback">MABATI ROLLING MILLS</span>
-      </a>
+    <a href="#roofing-sheets" class="header-cta">Explore Products</a>
 
-      <!-- THREE-DOT MENU BUTTON -->
+    <button class="menu-toggle" id="menuToggle" type="button"
+      aria-label="Open navigation menu" aria-expanded="false"
+      aria-controls="mainNav">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
 
-      
-<button class="menu-toggle" id="menuToggle" type="button"
-        aria-label="Open navigation menu" aria-expanded="false">
-  <span></span>
-  <span></span>
-  <span></span>
-</button>
+    <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+      <a href="#home">Home</a>
+      <a href="#about">About MRM</a>
+      <a href="#roofing-sheets">Roofing Categories</a>
+      <a href="#box-profile">Box Profile</a>
+      <a href="#tile-profile">Tile Profile</a>
+      <a href="#stone-coated">Stone Coated</a>
+      <a href="#corrugated">Corrugated</a>
+      <a href="#industrial">Industrial Roofing</a>
+      <a href="#accessories">Roofing Accessories</a>
+      <a href="#calculator">Price Calculator</a>
+      <a href="#colours">Product Colours</a>
+      <a href="#gallery">Project Gallery</a>
+      <a href="#faq">FAQs</a>
+      <a href="#contact">Contact & Quotations</a>
+    </nav>
 
+  </div>
+</header>
 
-      <!-- FULL WEBSITE NAVIGATION -->
+<main>
 
-      <nav class="main-nav" id="mainNav">
-        <a href="#home">Home</a>
-        <a href="#about">About MRM</a>
-        <a href="#roofing-sheets">Roofing Categories</a>
-        <a href="#box-profile">Box Profile</a>
-        <a href="#tile-profile">Tile Profile</a>
-        <a href="#stone-coated">Stone Coated</a>
-        <a href="#corrugated">Corrugated</a>
-        <a href="#industrial">Industrial Roofing</a>
-        <a href="#accessories">Roofing Accessories</a>
-        <a href="#calculator">Price Calculator</a>
-        <a href="#colours">Product Colours</a>
-        <a href="#gallery">Project Gallery</a>
-        <a href="#faq">FAQs</a>
-        <a href="#contact">Contact & Quotations</a>
-      </nav>
-
-      <a href="#roofing-sheets" class="header-cta">
-        Explore Products
-      </a>
-
+  <!-- HERO SLIDESHOW -->
+  <section class="hero" id="hero">
+    <div class="hero-slideshow">
+      <div class="hero-slide active"><img src="images/hero-1.jpg" alt="Modern residential house with premium roofing"></div>
+      <div class="hero-slide"><img src="images/hero-2.jpg" alt="Contemporary residential roofing"></div>
+      <div class="hero-slide"><img src="images/hero-3.jpg" alt="Commercial building with roofing"></div>
+      <div class="hero-slide"><img src="images/hero-4.jpg" alt="Residential property with elegant roof"></div>
+      <div class="hero-slide"><img src="images/hero-5.jpg" alt="Commercial roofing project"></div>
+      <div class="hero-slide"><img src="images/hero-6.jpg" alt="Modern architectural roofing design"></div>
     </div>
-  </header>
 
+    <div class="hero-overlay"></div>
 
-  <main>
-
-    <!-- HERO IMAGE SLIDESHOW -->
-
-    <section class="hero" id="hero">
-
-      <div class="hero-slideshow">
-
-        <div class="hero-slide active">
-          <img src="images/hero-1.jpg"
-            alt="Modern residential house with premium roofing">
-        </div>
-
-        <div class="hero-slide">
-          <img src="images/hero-2.jpg"
-            alt="Beautiful contemporary residential roofing">
-        </div>
-
-        <div class="hero-slide">
-          <img src="images/hero-3.jpg"
-            alt="Modern commercial building with quality roofing">
-        </div>
-
-        <div class="hero-slide">
-          <img src="images/hero-4.jpg"
-            alt="Luxury residential property with elegant roof">
-        </div>
-
-        <div class="hero-slide">
-          <img src="images/hero-5.jpg"
-            alt="Large commercial roofing project">
-        </div>
-
-        <div class="hero-slide">
-          <img src="images/hero-6.jpg"
-            alt="Beautiful modern architectural roofing design">
-        </div>
-
+    <div class="container hero-content">
+      <span class="eyebrow">MABATI ROLLING MILLS</span>
+      <h1>Build Strong.<br><span>Roof Beautifully.</span></h1>
+      <p>Discover roofing solutions for residential, commercial and industrial projects. Explore roofing profiles, colours and accessories.</p>
+      <div class="hero-buttons">
+        <a href="#roofing-sheets" class="btn btn-primary">Explore Roofing Sheets</a>
+        <a href="#calculator" class="btn btn-outline">Calculate Roofing Cost</a>
       </div>
+    </div>
 
-      <div class="hero-overlay"></div>
+    <div class="hero-indicators">
+      <button class="active" type="button" aria-label="Show image 1"></button>
+      <button type="button" aria-label="Show image 2"></button>
+      <button type="button" aria-label="Show image 3"></button>
+      <button type="button" aria-label="Show image 4"></button>
+      <button type="button" aria-label="Show image 5"></button>
+      <button type="button" aria-label="Show image 6"></button>
+    </div>
+  </section>
 
-      <div class="container hero-content">
-
-        <span class="eyebrow">
-          MABATI ROLLING MILLS
-        </span>
-
-        <h1>
-          Build Strong.<br>
-          <span>Roof Beautifully.</span>
-        </h1>
-
-        <p>
-          Discover roofing solutions for residential,
-          commercial and industrial projects.
-          Explore roofing profiles, colours and accessories.
-        </p>
-
-        <div class="hero-buttons">
-
-          <a href="#roofing-sheets" class="btn btn-primary">
-            Explore Roofing Sheets
-          </a>
-
-          <a href="#calculator" class="btn btn-outline">
-            Calculate Roofing Cost
-          </a>
-
-        </div>
-
+  <!-- ABOUT MRM -->
+  <section class="about-section section-padding" id="about">
+    <div class="container about-grid">
+      <div class="about-content">
+        <span class="section-label">ABOUT MABATI ROLLING MILLS</span>
+        <h2>Roofing solutions built around quality and innovation.</h2>
+        <p>Mabati Rolling Mills (MRM) is a recognised Kenyan manufacturer of steel roofing and building solutions. Its roofing product range includes different profiles, finishes and designs for residential, commercial and industrial applications.</p>
+        <p>Whether you are planning a new home, upgrading an existing roof or working on a commercial development, explore the available roofing options and identify products that suit your project requirements.</p>
+        <a href="#roofing-sheets" class="btn btn-primary">Explore MRM Products</a>
       </div>
-
-      <!-- SLIDESHOW INDICATORS -->
-
-      <div class="hero-indicators">
-        <button class="active" aria-label="Show image 1"></button>
-        <button aria-label="Show image 2"></button>
-        <button aria-label="Show image 3"></button>
-        <button aria-label="Show image 4"></button>
-        <button aria-label="Show image 5"></button>
-        <button aria-label="Show image 6"></button>
+      <div class="about-highlight">
+        <div class="about-highlight-inner">
+          <span class="about-mark">MRM</span>
+          <h3>Roofing for Every Project</h3>
+          <p>Explore different roofing profiles, styles, finishes and complementary accessories.</p>
+        </div>
       </div>
-
-    </section>
-
-
-    <!-- ABOUT MRM -->
-
-    <section class="about-section section-padding" id="about">
-
-      <div class="container about-grid">
-
-        <div class="about-content">
-
-          <span class="section-label">
-            ABOUT MABATI ROLLING MILLS
-          </span>
-
-          <h2>
-            Roofing solutions built around quality and innovation.
-          </h2>
-
-          <p>
-            Mabati Rolling Mills (MRM) is a recognised Kenyan
-            manufacturer of steel roofing and building solutions.
-            Its roofing product range includes different profiles,
-            finishes and designs for residential, commercial
-            and industrial applications.
-          </p>
-
-          <p>
-            Whether you are planning a new home, upgrading an
-            existing roof or working on a commercial development,
-            explore the available roofing options and identify
-            products that suit your project requirements.
-          </p>
-
-          <a href="#roofing-sheets" class="btn btn-primary">
-            Explore MRM Products
-          </a>
-
-        </div>
-
-        <div class="about-highlight">
-
-          <div class="about-highlight-inner">
-            <span class="about-mark">MRM</span>
-            <h3>Roofing for Every Project</h3>
-            <p>
-              Explore different roofing profiles, styles,
-              finishes and complementary accessories.
-            </p>
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- CATEGORY SHORTCUTS -->
-
-    <section class="category-shortcuts">
-
-      <div class="container">
-
-        <div class="section-heading">
-          <div>
-            <span class="section-label">OUR ROOFING RANGE</span>
-            <h2>Explore Roofing Categories</h2>
-          </div>
-        </div>
-
-        <div class="category-grid">
-
-          <a href="#box-profile" class="category-shortcut">
-            <span class="category-icon">▤</span>
-            <strong>Box Profile</strong>
-            <small>Modern roofing profiles</small>
-          </a>
-
-          <a href="#tile-profile" class="category-shortcut">
-            <span class="category-icon">⌂</span>
-            <strong>Tile Profile</strong>
-            <small>Elegant roof designs</small>
-          </a>
-
-          <a href="#stone-coated" class="category-shortcut">
-            <span class="category-icon">◆</span>
-            <strong>Stone Coated</strong>
-            <small>Distinctive finishes</small>
-          </a>
-
-          <a href="#corrugated" class="category-shortcut">
-            <span class="category-icon">▥</span>
-            <strong>Corrugated</strong>
-            <small>Classic roofing profiles</small>
-          </a>
-
-          <a href="#industrial" class="category-shortcut">
-            <span class="category-icon">▦</span>
-            <strong>Industrial & Concealed Fix</strong>
-            <small>Commercial applications</small>
-          </a>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- ROOFING SHEETS -->
-
-    <section class="products-section section-padding"
-      id="roofing-sheets">
-
-      <div class="container">
-
-        <div class="section-heading">
-          <div>
-            <span class="section-label">EXPLORE OUR CATALOGUE</span>
-            <h2>Roofing Sheets</h2>
-            <p>
-              Explore the five main roofing categories
-              and their available product options.
-            </p>
-          </div>
-        </div>
-
-
-        <!-- CATEGORY 1: BOX PROFILE -->
-
-        <div class="product-group" id="box-profile">
-
-          <div class="group-heading">
-            <h3>01. Box Profile Roofing Sheets</h3>
-            <p>
-              Practical and modern roofing profiles
-              for different building applications.
-            </p>
-          </div>
-
-          <div class="product-grid">
-
-            <article class="product-card">
-              <div class="product-image">
-                <img src="images/maxcover.jpg"
-                  alt="MRM MaxCover roofing sheet">
-              </div>
-              <div class="product-info">
-                <span class="product-brand">MRM PRODUCT</span>
-                <h4>MaxCover</h4>
-                <p>Box profile roofing sheet.</p>
-                <a href="#contact" class="text-link">Request Price →</a>
-              </div>
-            </article>
-
-            <article class="product-card">
-              <div class="product-image">
-                <img src="images/covermax.jpg"
-                  alt="MRM Covermax roofing sheet">
-              </div>
-              <div class="product-info">
-                <span class="product-brand">MRM PRODUCT</span>
-                <h4>Covermax</h4>
-                <p>Box profile roofing sheet.</p>
-                <a href="#contact" class="text-link">Request Price →</a>
-              </div>
-            </article>
-
-            <article class="product-card">
-              <div class="product-image">
-                <img src="images/dumu-rangi-box.jpg"
-                  alt="Dumu Rangi box profile">
-              </div>
-              <div class="product-info">
-                <span class="product-brand">MRM PRODUCT</span>
-                <h4>Dumu Rangi Box Profile</h4>
-                <p>Colour-coated box profile roofing.</p>
-                <a href="#contact" class="text-link">Request Price →</a>
-              </div>
-            </article>
-
-            <article class="product-card">
-              <div class="product-image">
-                <img src="images/it5.jpg"
-                  alt="IT5 roofing profile">
-              </div>
-              <div class="product-info">
-                <span class="product-brand">OTHER MARKET PROFILE</span>
-                <h4>IT5 Profile</h4>
-                <p>Additional market roofing profile.</p>
-                <a href="#contact" class="text-link">Request Price →</a>
-              </div>
-            </article>
-
-          </div>
-
-        </div>
-
-
-        <!-- CATEGORY 2: TILE PROFILE -->
-
-        <div class="product-group" id="tile-profile">
-
-          <div class="group-heading">
-            <h3>02. Tile Profile Roofing Sheets</h3>
-            <p>
-              Tile-inspired roofing designs for elegant
-              residential and commercial buildings.
-            </p>
-          </div>
-
-          <div class="product-grid">
-
-            <article class="product-card">
-              <div class="product-image">
-                <img src="images/versatile.jpg"
-                  alt="MRM Versatile roofing">
-              </div>
-              <div class="product-info">
-                <span class="product-brand">MRM PRODUCT</span>
-                <h4>Versatile</h4>
-                <p>Distinctive tile-style roofing profile.</p>
-                <a href="#contact" class="text-link">Request Price →</a>
-              </div>
-            </article>
-
-            <article class="product-card">
-              <div class="product-image">
-                <img src="images/orientile.jpg"
-                  alt="MRM Orientile roofing">
-              </div>
-              <div class="product-info">
-                <span class="product-brand">MRM PRODUCT</span>
-                <h4>Orientile</h4>
-                <p>Modern tile-style roofing sheet.</p>
-                <a href="#contact" class="text-link">Request Price →</a>
-              </div>
-            </article>
-
-            <article class="product-card">
-              <div class="product-image">
-                <img src="images/elegantile.jpg"
-                  alt="MRM Elegantile roofing">
-              </div>
-              <div class="product-info">
-                <span class="product-brand">MRM PRODUCT</span>
-                <h4>Elegantile</h4>
-                <p>Elegant tile-inspired roofing profile.</p>
-                <a href="#contact" class="text-link">Request Price →</a>
-              </div>
-            </article>
-
-            <article class="product-card">
-              <div class="product-image">
-                <img src="images/roman-tile.jpg"
-                  alt="Roman tile roofing profile">
-              </div>
-              <div class="product-info">
-                <span class="product-brand">OTHER MARKET PROFILE</span>
-                <h4>Roman Tile</h4>
-                <p>Additional tile-inspired roofing option.</p>
-                <a href="#contact" class="text-link">Request Price →</a>
-              </div>
-            </article>
-
-          </div>
-
-        </div>
-
-
-        <!-- CATEGORY 3: STONE COATED -->
-
-        <div class="product-group" id="stone-coated">
-
-          <div class="group-heading">
-            <h3>03. Stone-Coated Roofing</h3>
-            <p>
-              Distinctive textured roofing designs
-              for selected architectural styles.
-            </p>
-          </div>
-
-          <div class="product-grid">
-
-            <article class="product-card">
-              <div class="product-image">
-                <img src="images/lifestile-waves.jpg"
-                  alt="MRM Lifestile Waves">
-              </div>
-              <div class="product-info">
-                <span class="product-brand">MRM PRODUCT</span>
-                <h4>Lifestile Waves</h4>
-                <p>Stone-coated roofing profile.</p>
-                <a href="#contact" class="text-link">Request Price →</a>
-              </div>
-            </article>
-
-            <article class="product-card">
-              <div class="product-image">
-                <img src="images/lifestile-shingles.jpg"
-                  alt="MRM Lifestile Shingles">
-              </div>
-              <div class="product-info">
-                <span class="product-brand">MRM PRODUCT</span>
-                <h4>Lifestile Shingles</h4>
-                <p>Shingle-style stone-coated roofing.</p>
-                <a href="#contact" class="text-link">Request Price →</a>
-              </div>
-            </article>
-
-            <article class="product-card">
-              <div class="product-image">
-                <img src="images/lifestile-roman.jpg"
-                  alt="MRM Lifestile Roman">
-              </div>
-              <div class="product-info">
-                <span class="product-brand">MRM PRODUCT</span>
-                <h4>Lifestile Roman</h4>
-                <p>Roman-style stone-coated roofing.</p>
-                <a href="#contact" class="text-link">Request Price →</a>
-              </div>
-            </article>
-
-          </div>
-
-        </div>
-
-
-        <!-- CATEGORY 4: CORRUGATED -->
-
-        <div class="product-group" id="corrugated">
-
-          <div class="group-heading">
-            <h3>04. Corrugated Roofing Sheets</h3>
-            <p>
-              Traditional corrugated roofing profiles
-              for a variety of applications.
-            </p>
-          </div>
-
-          <div class="product-grid">
-
-            <article class="product-card">
-              <div class="product-image">
-                <img src="images/galsheet-resincot.jpg"
-                  alt="MRM Galsheet Resincot">
-              </div>
-              <div class="product-info">
-                <span class="product-brand">MRM PRODUCT</span>
-                <h4>Galsheet Resincot</h4>
-                <p>Corrugated roofing sheet.</p>
-                <a href="#contact" class="text-link">Request Price →</a>
-              </div>
-            </article>
-
-            <article class="product-card">
-              <div class="product-image">
-                <img src="images/unpainted-dumuzas.jpg"
-                  alt="MRM Unpainted Dumuzas">
-              </div>
-              <div class="product-info">
-                <span class="product-brand">MRM PRODUCT</span>
-                <h4>Unpainted Dumuzas</h4>
-                <p>Unpainted corrugated roofing sheet.</p>
-                <a href="#contact" class="text-link">Request Price →</a>
-              </div>
-            </article>
-
-            <article class="product-card">
-              <div class="product-image">
-                <img src="images/dumu-rangi-corrugated.jpg"
-                  alt="MRM Dumu Rangi corrugated">
-              </div>
-              <div class="product-info">
-                <span class="product-brand">MRM PRODUCT</span>
-                <h4>Dumu Rangi Corrugated</h4>
-                <p>Colour-coated corrugated roofing.</p>
-                <a href="#contact" class="text-link">Request Price →</a>
-              </div>
-            </article>
-
-          </div>
-
-        </div>
-
-
-        <!-- CATEGORY 5: INDUSTRIAL AND CONCEALED FIX -->
-
-        <div class="product-group" id="industrial">
-
-          <div class="group-heading">
-            <h3>05. Industrial & Concealed-Fix Roofing</h3>
-            <p>
-              Roofing and cladding profiles for selected
-              commercial and industrial applications.
-            </p>
-          </div>
-
-          <div class="product-grid">
-
-            <article class="product-card">
-              <div class="product-image">
-                <img src="images/saflok.jpg"
-                  alt="MRM Saflok profile">
-              </div>
-              <div class="product-info">
-                <span class="product-brand">MRM PRODUCT</span>
-                <h4>Saflok</h4>
-                <p>Concealed-fix roofing profile.</p>
-                <a href="#contact" class="text-link">Request Price →</a>
-              </div>
-            </article>
-
-            <article class="product-card">
-              <div class="product-image">
-                <img src="images/safdeck.jpg"
-                  alt="MRM Safdeck profile">
-              </div>
-              <div class="product-info">
-                <span class="product-brand">MRM PRODUCT</span>
-                <h4>Safdeck</h4>
-                <p>Industrial roofing and cladding profile.</p>
-                <a href="#contact" class="text-link">Request Price →</a>
-              </div>
-            </article>
-
-            <article class="product-card">
-              <div class="product-image">
-                <img src="images/trimflute.jpg"
-                  alt="MRM Trimflute profile">
-              </div>
-              <div class="product-info">
-                <span class="product-brand">MRM PRODUCT</span>
-                <h4>Trimflute</h4>
-                <p>Profile for selected roofing applications.</p>
-                <a href="#contact" class="text-link">Request Price →</a>
-              </div>
-            </article>
-
-            <article class="product-card">
-              <div class="product-image">
-                <img src="images/tekdek.jpg"
-                  alt="MRM Tekdek profile">
-              </div>
-              <div class="product-info">
-                <span class="product-brand">MRM PRODUCT</span>
-                <h4>Tekdek</h4>
-                <p>Industrial roofing profile.</p>
-                <a href="#contact" class="text-link">Request Price →</a>
-              </div>
-            </article>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- ROOFING ACCESSORIES -->
-
-    <section class="accessories-section section-padding"
-      id="accessories">
-
-      <div class="container">
-
-        <div class="section-heading">
-          <div>
-            <span class="section-label">COMPLETE YOUR ROOF</span>
-            <h2>Roofing Accessories</h2>
-            <p>
-              Essential components for roofing installation
-              and finishing.
-            </p>
-          </div>
-        </div>
-
-        <div class="accessory-grid">
-
-          <article class="accessory-card">
-            <div class="accessory-symbol">⌃</div>
-            <h3>Ridge Caps</h3>
-            <p>Standard, flat, curved and roll-top ridge options.</p>
-            <a href="#contact">Enquire Now →</a>
-          </article>
-
-          <article class="accessory-card">
-            <div class="accessory-symbol">⌄</div>
-            <h3>Valley Trays</h3>
-            <p>Roof valley components for water drainage.</p>
-            <a href="#contact">Enquire Now →</a>
-          </article>
-
-          <article class="accessory-card">
-            <div class="accessory-symbol">◫</div>
-            <h3>Roof Flashings</h3>
-            <p>Side-wall, apron and barge flashing options.</p>
-            <a href="#contact">Enquire Now →</a>
-          </article>
-
-          <article class="accessory-card">
-            <div class="accessory-symbol">⚙</div>
-            <h3>Roofing Fasteners</h3>
-            <p>Roofing screws, nails, washers and fittings.</p>
-            <a href="#contact">Enquire Now →</a>
-          </article>
-
-          <article class="accessory-card">
-            <div class="accessory-symbol">▤</div>
-            <h3>Gutters & Downpipes</h3>
-            <p>Rainwater collection and drainage components.</p>
-            <a href="#contact">Enquire Now →</a>
-          </article>
-
-          <article class="accessory-card">
-            <div class="accessory-symbol">⌂</div>
-            <h3>Roof Ventilation</h3>
-            <p>Selected roof ventilation components.</p>
-            <a href="#contact">Enquire Now →</a>
-          </article>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- ROOFING CALCULATOR -->
-
-    <section class="calculator-section section-padding"
-      id="calculator">
-
-      <div class="container calculator-layout">
-
-        <div class="calculator-copy">
-
-          <span class="section-label">
-            PLAN YOUR ROOFING BUDGET
-          </span>
-
-          <h2>Roofing Price Calculator</h2>
-
-          <p>
-            Select a roofing product, enter the required length
-            in metres and calculate an estimated material cost
-            using the confirmed price per metre.
-          </p>
-
-          <p class="calculator-note">
-            Final quotations may depend on product specifications,
-            accessories, delivery and confirmed pricing.
-          </p>
-
-        </div>
-
-        <div class="calculator-box">
-
-          <h3>Calculate Your Roofing Cost</h3>
-
-          <label for="calcProduct">
-            Select Roofing Product
-          </label>
-
-          <select id="calcProduct">
-            <option value="">Choose a product</option>
-            <option value="MaxCover">MaxCover</option>
-            <option value="Covermax">Covermax</option>
-            <option value="Dumu Rangi Box Profile">Dumu Rangi Box Profile</option>
-            <option value="Versatile">Versatile</option>
-            <option value="Orientile">Orientile</option>
-            <option value="Elegantile">Elegantile</option>
-            <option value="Galsheet Resincot">Galsheet Resincot</option>
-          </select>
-
-          <label for="metreQuantity">
-            Required Length (metres)
-          </label>
-
-          <div class="quantity-control">
-
-            <button type="button" id="decreaseMetres"
-              aria-label="Decrease metres">−</button>
-
-            <output id="metreQuantity">2</output>
-
-            <button type="button" id="increaseMetres"
-              aria-label="Increase metres">+</button>
-
-          </div>
-
-          <div class="price-summary">
-
-            <div>
-              <span>Price per metre</span>
-              <strong id="pricePerMetre">To be confirmed</strong>
-            </div>
-
-            <div>
-              <span>Estimated total</span>
-              <strong id="estimatedTotal">To be confirmed</strong>
-            </div>
-
-          </div>
-
-          <p class="calculator-note">
-            Product prices will be added once the confirmed
-            price list is provided.
-          </p>
-
-          <a href="#contact" class="btn btn-primary calculator-button">
-            Request a Quotation
-          </a>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- PRODUCT COLOURS -->
-
-    <section class="colours-section section-padding" id="colours">
-
-      <div class="container">
-
-        <div class="section-heading">
-          <div>
-            <span class="section-label">PERSONALISE YOUR ROOF</span>
-            <h2>Roofing Colours & Finishes</h2>
-            <p>
-              Explore colour options available for selected
-              roofing profiles.
-            </p>
-          </div>
-        </div>
-
-        <div class="colour-grid">
-
-          <div>
-            <span class="colour-swatch" style="background:#183b69"></span>
-            <strong>Blue</strong>
-          </div>
-
-          <div>
-            <span class="colour-swatch" style="background:#9d2026"></span>
-            <strong>Maroon</strong>
-          </div>
-
-          <div>
-            <span class="colour-swatch" style="background:#17613b"></span>
-            <strong>Green</strong>
-          </div>
-
-          <div>
-            <span class="colour-swatch" style="background:#292929"></span>
-            <strong>Charcoal</strong>
-          </div>
-
-          <div>
-            <span class="colour-swatch" style="background:#6c7076"></span>
-            <strong>Grey</strong>
-          </div>
-
-          <div>
-            <span class="colour-swatch" style="background:#8c4b24"></span>
-            <strong>Brown</strong>
-          </div>
-
-          <div>
-            <span class="colour-swatch" style="background:#f1f0e9"></span>
-            <strong>Off White</strong>
-          </div>
-
-          <div>
-            <span class="colour-swatch" style="background:#a8a8a8"></span>
-            <strong>Silver</strong>
-          </div>
-
-        </div>
-
-        <p class="small-note">
-          Colour availability varies by product, gauge and finish.
-          Confirm current options before ordering.
-        </p>
-
-      </div>
-
-    </section>
-
-
-    <!-- PROJECT GALLERY -->
-
-    <section class="gallery-section section-padding"
-      id="gallery">
-
-      <div class="container">
-
-        <div class="section-heading">
-          <div>
-            <span class="section-label">ROOFING INSPIRATION</span>
-            <h2>Roofing Projects & Inspiration</h2>
-            <p>
-              Explore roofing designs and applications
-              for different buildings.
-            </p>
-          </div>
-        </div>
-
-        <div class="gallery-grid">
-
-          <div class="gallery-placeholder">
-            <span>Residential Roofing</span>
-          </div>
-
-          <div class="gallery-placeholder">
-            <span>Modern Roof Designs</span>
-          </div>
-
-          <div class="gallery-placeholder">
-            <span>Commercial Roofing</span>
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- FREQUENTLY ASKED QUESTIONS -->
-
-    <section class="faq-section section-padding" id="faq">
-
-      <div class="container">
-
-        <div class="section-heading">
-          <div>
-            <span class="section-label">CUSTOMER INFORMATION</span>
-            <h2>Frequently Asked Questions</h2>
-            <p>
-              Find quick answers to common questions
-              about roofing products and ordering.
-            </p>
-          </div>
-        </div>
-
-        <div class="faq-list">
-
-          <details class="faq-item">
-            <summary>
-              What roofing products are available?
-            </summary>
-            <div class="faq-answer">
-              <p>
-                The catalogue covers five main categories:
-                Box Profile, Tile Profile, Stone-Coated Roofing,
-                Corrugated Roofing, and Industrial and
-                Concealed-Fix Roofing.
-              </p>
-              <p>
-                Available models and specifications should
-                be confirmed when making an enquiry.
-              </p>
-            </div>
-          </details>
-
-          <details class="faq-item">
-            <summary>
-              How do I choose the right roofing sheets?
-            </summary>
-            <div class="faq-answer">
-              <p>
-                Consider your building design, roof structure,
-                preferred appearance, required sheet dimensions,
-                finish and budget. A roofing quotation can help
-                establish the suitable product and specifications.
-              </p>
-            </div>
-          </details>
-
-          <details class="faq-item">
-            <summary>
-              How can I get the current product prices?
-            </summary>
-            <div class="faq-answer">
-              <p>
-                Contact the team through the WhatsApp enquiry
-                button for current prices and product availability.
-              </p>
-            </div>
-          </details>
-
-          <details class="faq-item">
-            <summary>
-              Can I request a roofing quotation?
-            </summary>
-            <div class="faq-answer">
-              <p>
-                Yes. Send an enquiry through WhatsApp and provide
-                your preferred roofing product, project location
-                and estimated requirements.
-              </p>
-            </div>
-          </details>
-
-          <details class="faq-item">
-            <summary>
-              Do you have roofing accessories?
-            </summary>
-            <div class="faq-answer">
-              <p>
-                The catalogue includes common roofing accessories
-                such as ridge caps, valley trays, flashings,
-                fasteners, gutters, downpipes and ventilation items.
-                Confirm availability when enquiring.
-              </p>
-            </div>
-          </details>
-
-          <details class="faq-item">
-            <summary>
-              Are different roofing colours available?
-            </summary>
-            <div class="faq-answer">
-              <p>
-                Colour options vary depending on the roofing
-                product, finish and specifications. Contact the
-                team to confirm available colours.
-              </p>
-            </div>
-          </details>
-
-          <details class="faq-item">
-            <summary>
-              How does the roofing price calculator work?
-            </summary>
-            <div class="faq-answer">
-              <p>
-                Select a product and enter the required length
-                in metres. Once confirmed product prices have
-                been added, the calculator will estimate the
-                material cost using the price per metre.
-              </p>
-              <p>
-                The calculator is not a complete roof-area or
-                sheet-quantity estimator.
-              </p>
-            </div>
-          </details>
-
-          <details class="faq-item">
-            <summary>
-              How do I place an order?
-            </summary>
-            <div class="faq-answer">
-              <p>
-                Send your enquiry through WhatsApp. The team can
-                assist with product information, pricing,
-                availability and the ordering process.
-              </p>
-            </div>
-          </details>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- CONTACT -->
-
-    <section class="contact-section section-padding"
-      id="contact">
-
-      <div class="container contact-layout">
-
+    </div>
+  </section>
+
+  <!-- CATEGORY SHORTCUTS -->
+  <section class="category-shortcuts">
+    <div class="container">
+      <div class="section-heading">
         <div>
-
-          <span class="section-label">
-            LET'S DISCUSS YOUR PROJECT
-          </span>
-
-          <h2>Ready to place your roofing order?</h2>
-
-          <p>
-            Contact the team for product information,
-            pricing, specifications and quotation assistance.
-          </p>
-
+          <span class="section-label">OUR ROOFING RANGE</span>
+          <h2>Explore Roofing Categories</h2>
         </div>
+      </div>
+      <div class="category-grid">
+        <a href="#box-profile" class="category-shortcut"><span class="category-icon">▤</span><strong>Box Profile</strong><small>Modern roofing profiles</small></a>
+        <a href="#tile-profile" class="category-shortcut"><span class="category-icon">⌂</span><strong>Tile Profile</strong><small>Elegant roof designs</small></a>
+        <a href="#stone-coated" class="category-shortcut"><span class="category-icon">◆</span><strong>Stone Coated</strong><small>Distinctive finishes</small></a>
+        <a href="#corrugated" class="category-shortcut"><span class="category-icon">▥</span><strong>Corrugated</strong><small>Classic roofing profiles</small></a>
+        <a href="#industrial" class="category-shortcut"><span class="category-icon">▦</span><strong>Industrial & Concealed Fix</strong><small>Commercial applications</small></a>
+      </div>
+    </div>
+  </section>
 
-        <div class="contact-actions">
-
-          <a href="#" class="btn btn-primary whatsapp-contact">
-            Enquire on WhatsApp
-          </a>
-
-          <a href="#roofing-sheets" class="btn btn-outline-dark">
-            Browse Products
-          </a>
-
+  <!-- ROOFING SHEETS -->
+  <section class="products-section section-padding" id="roofing-sheets">
+    <div class="container">
+      <div class="section-heading">
+        <div>
+          <span class="section-label">EXPLORE OUR CATALOGUE</span>
+          <h2>Roofing Sheets</h2>
+          <p>Explore the five main roofing categories and their available product options.</p>
         </div>
-
       </div>
 
-    </section>
-
-  </main>
-
-
-  <!-- FOOTER -->
-
-  <footer class="site-footer">
-
-    <div class="container footer-grid">
-
-      <div class="footer-brand">
-
-        <h2>MABATI ROLLING MILLS</h2>
-
-        <p>
-          Explore roofing products, roofing profiles
-          and complementary accessories for residential,
-          commercial and industrial projects.
-        </p>
-
+      <div class="product-group" id="box-profile">
+        <div class="group-heading">
+          <h3>01. Box Profile Roofing Sheets</h3>
+          <p>Practical and modern roofing profiles for different building applications.</p>
+        </div>
+        <div class="product-grid">
+          <article class="product-card"><div class="product-image"><img src="images/maxcover.jpg" alt="MRM MaxCover roofing sheet"></div><div class="product-info"><span class="product-brand">MRM PRODUCT</span><h4>MaxCover</h4><p>Box profile roofing sheet.</p><a href="#contact" class="text-link">Request Price →</a></div></article>
+          <article class="product-card"><div class="product-image"><img src="images/covermax.jpg" alt="MRM Covermax roofing sheet"></div><div class="product-info"><span class="product-brand">MRM PRODUCT</span><h4>Covermax</h4><p>Box profile roofing sheet.</p><a href="#contact" class="text-link">Request Price →</a></div></article>
+          <article class="product-card"><div class="product-image"><img src="images/dumu-rangi-box.jpg" alt="Dumu Rangi box profile"></div><div class="product-info"><span class="product-brand">MRM PRODUCT</span><h4>Dumu Rangi Box Profile</h4><p>Colour-coated box profile roofing.</p><a href="#contact" class="text-link">Request Price →</a></div></article>
+          <article class="product-card"><div class="product-image"><img src="images/it5.jpg" alt="IT5 roofing profile"></div><div class="product-info"><span class="product-brand">OTHER MARKET PROFILE</span><h4>IT5 Profile</h4><p>Additional market roofing profile.</p><a href="#contact" class="text-link">Request Price →</a></div></article>
+        </div>
       </div>
 
-      <div>
-
-        <h3>Explore Website</h3>
-
-        <a href="#about">About MRM</a>
-        <a href="#roofing-sheets">Roofing Sheets</a>
-        <a href="#accessories">Roofing Accessories</a>
-        <a href="#calculator">Price Calculator</a>
-        <a href="#gallery">Project Gallery</a>
-        <a href="#faq">Frequently Asked Questions</a>
-
+      <div class="product-group" id="tile-profile">
+        <div class="group-heading"><h3>02. Tile Profile Roofing Sheets</h3><p>Tile-inspired roofing designs for elegant residential and commercial buildings.</p></div>
+        <div class="product-grid">
+          <article class="product-card"><div class="product-image"><img src="images/versatile.jpg" alt="MRM Versatile roofing"></div><div class="product-info"><span class="product-brand">MRM PRODUCT</span><h4>Versatile</h4><p>Distinctive tile-style roofing profile.</p><a href="#contact" class="text-link">Request Price →</a></div></article>
+          <article class="product-card"><div class="product-image"><img src="images/orientile.jpg" alt="MRM Orientile roofing"></div><div class="product-info"><span class="product-brand">MRM PRODUCT</span><h4>Orientile</h4><p>Modern tile-style roofing sheet.</p><a href="#contact" class="text-link">Request Price →</a></div></article>
+          <article class="product-card"><div class="product-image"><img src="images/elegantile.jpg" alt="MRM Elegantile roofing"></div><div class="product-info"><span class="product-brand">MRM PRODUCT</span><h4>Elegantile</h4><p>Elegant tile-inspired roofing profile.</p><a href="#contact" class="text-link">Request Price →</a></div></article>
+          <article class="product-card"><div class="product-image"><img src="images/roman-tile.jpg" alt="Roman tile roofing profile"></div><div class="product-info"><span class="product-brand">OTHER MARKET PROFILE</span><h4>Roman Tile</h4><p>Additional tile-inspired roofing option.</p><a href="#contact" class="text-link">Request Price →</a></div></article>
+        </div>
       </div>
 
-      <div>
-
-        <h3>Roofing Categories</h3>
-
-        <a href="#box-profile">Box Profile</a>
-        <a href="#tile-profile">Tile Profile</a>
-        <a href="#stone-coated">Stone Coated</a>
-        <a href="#corrugated">Corrugated Sheets</a>
-        <a href="#industrial">Industrial Roofing</a>
-
+      <div class="product-group" id="stone-coated">
+        <div class="group-heading"><h3>03. Stone-Coated Roofing</h3><p>Distinctive textured roofing designs for selected architectural styles.</p></div>
+        <div class="product-grid">
+          <article class="product-card"><div class="product-image"><img src="images/lifestile-waves.jpg" alt="MRM Lifestile Waves"></div><div class="product-info"><span class="product-brand">MRM PRODUCT</span><h4>Lifestile Waves</h4><p>Stone-coated roofing profile.</p><a href="#contact" class="text-link">Request Price →</a></div></article>
+          <article class="product-card"><div class="product-image"><img src="images/lifestile-shingles.jpg" alt="MRM Lifestile Shingles"></div><div class="product-info"><span class="product-brand">MRM PRODUCT</span><h4>Lifestile Shingles</h4><p>Shingle-style stone-coated roofing.</p><a href="#contact" class="text-link">Request Price →</a></div></article>
+          <article class="product-card"><div class="product-image"><img src="images/lifestile-roman.jpg" alt="MRM Lifestile Roman"></div><div class="product-info"><span class="product-brand">MRM PRODUCT</span><h4>Lifestile Roman</h4><p>Roman-style stone-coated roofing.</p><a href="#contact" class="text-link">Request Price →</a></div></article>
+        </div>
       </div>
 
-      <div>
-
-        <h3>Contact</h3>
-
-        <a href="#contact">Product Enquiries</a>
-        <a href="#contact">Request a Quotation</a>
-        <a href="#colours">Product Colours</a>
-
+      <div class="product-group" id="corrugated">
+        <div class="group-heading"><h3>04. Corrugated Roofing Sheets</h3><p>Traditional corrugated roofing profiles for a variety of applications.</p></div>
+        <div class="product-grid">
+          <article class="product-card"><div class="product-image"><img src="images/galsheet-resincot.jpg" alt="MRM Galsheet Resincot"></div><div class="product-info"><span class="product-brand">MRM PRODUCT</span><h4>Galsheet Resincot</h4><p>Corrugated roofing sheet.</p><a href="#contact" class="text-link">Request Price →</a></div></article>
+          <article class="product-card"><div class="product-image"><img src="images/unpainted-dumuzas.jpg" alt="MRM Unpainted Dumuzas"></div><div class="product-info"><span class="product-brand">MRM PRODUCT</span><h4>Unpainted Dumuzas</h4><p>Unpainted corrugated roofing sheet.</p><a href="#contact" class="text-link">Request Price →</a></div></article>
+          <article class="product-card"><div class="product-image"><img src="images/dumu-rangi-corrugated.jpg" alt="MRM Dumu Rangi corrugated"></div><div class="product-info"><span class="product-brand">MRM PRODUCT</span><h4>Dumu Rangi Corrugated</h4><p>Colour-coated corrugated roofing.</p><a href="#contact" class="text-link">Request Price →</a></div></article>
+        </div>
       </div>
 
+      <div class="product-group" id="industrial">
+        <div class="group-heading"><h3>05. Industrial & Concealed-Fix Roofing</h3><p>Roofing and cladding profiles for selected commercial and industrial applications.</p></div>
+        <div class="product-grid">
+          <article class="product-card"><div class="product-image"><img src="images/saflok.jpg" alt="MRM Saflok profile"></div><div class="product-info"><span class="product-brand">MRM PRODUCT</span><h4>Saflok</h4><p>Concealed-fix roofing profile.</p><a href="#contact" class="text-link">Request Price →</a></div></article>
+          <article class="product-card"><div class="product-image"><img src="images/safdeck.jpg" alt="MRM Safdeck profile"></div><div class="product-info"><span class="product-brand">MRM PRODUCT</span><h4>Safdeck</h4><p>Industrial roofing and cladding profile.</p><a href="#contact" class="text-link">Request Price →</a></div></article>
+          <article class="product-card"><div class="product-image"><img src="images/trimflute.jpg" alt="MRM Trimflute profile"></div><div class="product-info"><span class="product-brand">MRM PRODUCT</span><h4>Trimflute</h4><p>Profile for selected roofing applications.</p><a href="#contact" class="text-link">Request Price →</a></div></article>
+          <article class="product-card"><div class="product-image"><img src="images/tekdek.jpg" alt="MRM Tekdek profile"></div><div class="product-info"><span class="product-brand">MRM PRODUCT</span><h4>Tekdek</h4><p>Industrial roofing profile.</p><a href="#contact" class="text-link">Request Price →</a></div></article>
+        </div>
+      </div>
     </div>
+  </section>
 
-    <div class="container footer-bottom">
-
-      <p>
-        © <span id="currentYear">2026</span>
-        MABATI ROLLING MILLS.
-      </p>
-
-      <p>
-        Product names and manufacturer attribution
-        are subject to verification.
-      </p>
-
+  <!-- ACCESSORIES -->
+  <section class="accessories-section section-padding" id="accessories">
+    <div class="container">
+      <div class="section-heading"><div><span class="section-label">COMPLETE YOUR ROOF</span><h2>Roofing Accessories</h2><p>Essential components for roofing installation and finishing.</p></div></div>
+      <div class="accessory-grid">
+        <article class="accessory-card"><div class="accessory-symbol">⌃</div><h3>Ridge Caps</h3><p>Standard, flat, curved and roll-top ridge options.</p><a href="#contact">Enquire Now →</a></article>
+        <article class="accessory-card"><div class="accessory-symbol">⌄</div><h3>Valley Trays</h3><p>Roof valley components for water drainage.</p><a href="#contact">Enquire Now →</a></article>
+        <article class="accessory-card"><div class="accessory-symbol">◫</div><h3>Roof Flashings</h3><p>Side-wall, apron and barge flashing options.</p><a href="#contact">Enquire Now →</a></article>
+        <article class="accessory-card"><div class="accessory-symbol">⚙</div><h3>Roofing Fasteners</h3><p>Roofing screws, nails, washers and fittings.</p><a href="#contact">Enquire Now →</a></article>
+        <article class="accessory-card"><div class="accessory-symbol">▤</div><h3>Gutters & Downpipes</h3><p>Rainwater collection and drainage components.</p><a href="#contact">Enquire Now →</a></article>
+        <article class="accessory-card"><div class="accessory-symbol">⌂</div><h3>Roof Ventilation</h3><p>Selected roof ventilation components.</p><a href="#contact">Enquire Now →</a></article>
+      </div>
     </div>
+  </section>
 
-  </footer>
+  <!-- CALCULATOR -->
+  <section class="calculator-section section-padding" id="calculator">
+    <div class="container calculator-layout">
+      <div class="calculator-copy">
+        <span class="section-label">PLAN YOUR ROOFING BUDGET</span>
+        <h2>Roofing Price Calculator</h2>
+        <p>Select a roofing product, enter the required length in metres and calculate an estimated material cost using the confirmed price per metre.</p>
+        <p class="calculator-note">Final quotations may depend on product specifications, accessories, delivery and confirmed pricing.</p>
+      </div>
+      <div class="calculator-box">
+        <h3>Calculate Your Roofing Cost</h3>
+        <label for="calcProduct">Select Roofing Product</label>
+        <select id="calcProduct">
+          <option value="">Choose a product</option>
+          <option value="MaxCover">MaxCover</option>
+          <option value="Covermax">Covermax</option>
+          <option value="Dumu Rangi Box Profile">Dumu Rangi Box Profile</option>
+          <option value="Versatile">Versatile</option>
+          <option value="Orientile">Orientile</option>
+          <option value="Elegantile">Elegantile</option>
+          <option value="Galsheet Resincot">Galsheet Resincot</option>
+        </select>
+        <label for="metreQuantity">Required Length (metres)</label>
+        <div class="quantity-control">
+          <button type="button" id="decreaseMetres" aria-label="Decrease metres">−</button>
+          <output id="metreQuantity">2</output>
+          <button type="button" id="increaseMetres" aria-label="Increase metres">+</button>
+        </div>
+        <div class="price-summary">
+          <div><span>Price per metre</span><strong id="pricePerMetre">To be confirmed</strong></div>
+          <div><span>Estimated total</span><strong id="estimatedTotal">To be confirmed</strong></div>
+        </div>
+        <p class="calculator-note">Product prices will be added once the confirmed price list is provided.</p>
+        <a href="#contact" class="btn btn-primary calculator-button">Request a Quotation</a>
+      </div>
+    </div>
+  </section>
 
+  <!-- COLOURS -->
+  <section class="colours-section section-padding" id="colours">
+    <div class="container">
+      <div class="section-heading"><div><span class="section-label">PERSONALISE YOUR ROOF</span><h2>Roofing Colours & Finishes</h2><p>Explore colour options available for selected roofing profiles.</p></div></div>
+      <div class="colour-grid">
+        <div><span class="colour-swatch" style="background:#183b69"></span><strong>Blue</strong></div>
+        <div><span class="colour-swatch" style="background:#9d2026"></span><strong>Maroon</strong></div>
+        <div><span class="colour-swatch" style="background:#17613b"></span><strong>Green</strong></div>
+        <div><span class="colour-swatch" style="background:#292929"></span><strong>Charcoal</strong></div>
+        <div><span class="colour-swatch" style="background:#6c7076"></span><strong>Grey</strong></div>
+        <div><span class="colour-swatch" style="background:#8c4b24"></span><strong>Brown</strong></div>
+        <div><span class="colour-swatch" style="background:#f1f0e9"></span><strong>Off White</strong></div>
+        <div><span class="colour-swatch" style="background:#a8a8a8"></span><strong>Silver</strong></div>
+      </div>
+      <p class="small-note">Colour availability varies by product, gauge and finish. Confirm current options before ordering.</p>
+    </div>
+  </section>
 
-  <!-- FLOATING WHATSAPP BUTTON -->
+  <!-- GALLERY -->
+  <section class="gallery-section section-padding" id="gallery">
+    <div class="container">
+      <div class="section-heading"><div><span class="section-label">ROOFING INSPIRATION</span><h2>Roofing Projects & Inspiration</h2><p>Explore roofing designs and applications for different buildings.</p></div></div>
+      <div class="gallery-grid">
+        <div class="gallery-placeholder"><span>Residential Roofing</span></div>
+        <div class="gallery-placeholder"><span>Modern Roof Designs</span></div>
+        <div class="gallery-placeholder"><span>Commercial Roofing</span></div>
+      </div>
+    </div>
+  </section>
 
-  <a href="#" class="floating-whatsapp" id="whatsappFloat"
-    aria-label="Contact us on WhatsApp">
+  <!-- FAQ -->
+  <section class="faq-section section-padding" id="faq">
+    <div class="container">
+      <div class="section-heading"><div><span class="section-label">CUSTOMER INFORMATION</span><h2>Frequently Asked Questions</h2><p>Find quick answers to common questions about roofing products and ordering.</p></div></div>
+      <div class="faq-list">
+        <details class="faq-item"><summary>What roofing products are available?</summary><div class="faq-answer"><p>The catalogue covers five main categories: Box Profile, Tile Profile, Stone-Coated Roofing, Corrugated Roofing, and Industrial and Concealed-Fix Roofing.</p><p>Available models and specifications should be confirmed when making an enquiry.</p></div></details>
+        <details class="faq-item"><summary>How do I choose the right roofing sheets?</summary><div class="faq-answer"><p>Consider your building design, roof structure, preferred appearance, required sheet dimensions, finish and budget. A roofing quotation can help establish the suitable product and specifications.</p></div></details>
+        <details class="faq-item"><summary>How can I get the current product prices?</summary><div class="faq-answer"><p>Contact the team through the WhatsApp enquiry button for current prices and product availability.</p></div></details>
+        <details class="faq-item"><summary>Can I request a roofing quotation?</summary><div class="faq-answer"><p>Yes. Send an enquiry through WhatsApp and provide your preferred roofing product, project location and estimated requirements.</p></div></details>
+        <details class="faq-item"><summary>Do you have roofing accessories?</summary><div class="faq-answer"><p>The catalogue includes common roofing accessories such as ridge caps, valley trays, flashings, fasteners, gutters, downpipes and ventilation items. Confirm availability when enquiring.</p></div></details>
+        <details class="faq-item"><summary>Are different roofing colours available?</summary><div class="faq-answer"><p>Colour options vary depending on the roofing product, finish and specifications. Contact the team to confirm available colours.</p></div></details>
+        <details class="faq-item"><summary>How does the roofing price calculator work?</summary><div class="faq-answer"><p>Select a product and enter the required length in metres. Once confirmed product prices have been added, the calculator will estimate the material cost using the price per metre.</p><p>The calculator is not a complete roof-area or sheet-quantity estimator.</p></div></details>
+        <details class="faq-item"><summary>How do I place an order?</summary><div class="faq-answer"><p>Send your enquiry through WhatsApp. The team can assist with product information, pricing, availability and the ordering process.</p></div></details>
+      </div>
+    </div>
+  </section>
 
-    <span class="whatsapp-icon">☎</span>
-    <span class="whatsapp-label">Chat with us</span>
+  <!-- CONTACT -->
+  <section class="contact-section section-padding" id="contact">
+    <div class="container contact-layout">
+      <div>
+        <span class="section-label">LET'S DISCUSS YOUR PROJECT</span>
+        <h2>Ready to place your roofing order?</h2>
+        <p>Contact the team for product information, pricing, specifications and quotation assistance.</p>
+      </div>
+      <div class="contact-actions">
+        <a href="#" class="btn btn-primary whatsapp-contact">Enquire on WhatsApp</a>
+        <a href="#roofing-sheets" class="btn btn-outline-dark">Browse Products</a>
+      </div>
+    </div>
+  </section>
 
-  </a>
+</main>
 
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <h2>MABATI ROLLING MILLS</h2>
+      <p>Explore roofing products, roofing profiles and complementary accessories for residential, commercial and industrial projects.</p>
+    </div>
+    <div>
+      <h3>Explore Website</h3>
+      <a href="#about">About MRM</a>
+      <a href="#roofing-sheets">Roofing Sheets</a>
+      <a href="#accessories">Roofing Accessories</a>
+      <a href="#calculator">Price Calculator</a>
+      <a href="#gallery">Project Gallery</a>
+      <a href="#faq">Frequently Asked Questions</a>
+    </div>
+    <div>
+      <h3>Roofing Categories</h3>
+      <a href="#box-profile">Box Profile</a>
+      <a href="#tile-profile">Tile Profile</a>
+      <a href="#stone-coated">Stone Coated</a>
+      <a href="#corrugated">Corrugated Sheets</a>
+      <a href="#industrial">Industrial Roofing</a>
+    </div>
+    <div>
+      <h3>Contact</h3>
+      <a href="#contact">Product Enquiries</a>
+      <a href="#contact">Request a Quotation</a>
+      <a href="#colours">Product Colours</a>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <p>© <span id="currentYear">2026</span> MABATI ROLLING MILLS.</p>
+    <p>Product names and manufacturer attribution are subject to verification.</p>
+  </div>
+</footer>
 
-  <script src="app.js"></script>
+<!-- FLOATING WHATSAPP -->
+<a href="#" class="floating-whatsapp" id="whatsappFloat" aria-label="Contact us on WhatsApp">
+  <span class="whatsapp-icon">☎</span>
+  <span class="whatsapp-label">Chat with us</span>
+</a>
 
+<script src="app.js"></script>
 </body>
 </html>
