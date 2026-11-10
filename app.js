@@ -18,65 +18,69 @@ I hope you are doing well. I am interested in placing an order for your roofing 
 Thank you. I look forward to your response.`;
 
 const whatsappLink =
-    `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
+  `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
 
 
 /* =========================================
-   2. MOBILE THREE-DOT NAVIGATION
+   2. NAVIGATION MENU
 ========================================= */
-
 
 const menuToggle = document.getElementById("menuToggle");
 const mainNav = document.getElementById("mainNav");
 
-if (menuToggle && mainNav) {
-  menuToggle.addEventListener("click", function () {
-    const isOpen = mainNav.classList.toggle("open");
-    menuToggle.setAttribute("aria-expanded", isOpen);
-  });
+function closeMenu() {
+  if (!menuToggle || !mainNav) return;
 
-  mainNav.querySelectorAll("a").forEach(function (link) {
-    link.addEventListener("click", function () {
-      mainNav.classList.remove("open");
-      menuToggle.setAttribute("aria-expanded", "false");
-    });
-  });
+  mainNav.classList.remove("open");
+  menuToggle.setAttribute("aria-expanded", "false");
+  menuToggle.setAttribute("aria-label", "Open navigation menu");
 }
 
+function openMenu() {
+  if (!menuToggle || !mainNav) return;
 
-    // Close menu after selecting a section
+  mainNav.classList.add("open");
+  menuToggle.setAttribute("aria-expanded", "true");
+  menuToggle.setAttribute("aria-label", "Close navigation menu");
+}
 
-    mainNav.querySelectorAll("a").forEach(link => {
+if (menuToggle && mainNav) {
 
-        link.addEventListener("click", () => {
+  menuToggle.addEventListener("click", function (event) {
+    event.stopPropagation();
 
-            mainNav.classList.remove("open");
+    const isOpen = mainNav.classList.contains("open");
 
-            menuToggle.setAttribute("aria-expanded", "false");
-            menuToggle.setAttribute("aria-label", "Open navigation menu");
+    if (isOpen) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
+  });
 
-        });
-
+  // Close after selecting a navigation link.
+  mainNav.querySelectorAll("a").forEach(function (link) {
+    link.addEventListener("click", function () {
+      closeMenu();
     });
+  });
 
-    // Close menu when clicking outside it
+  // Close when tapping anywhere outside the menu.
+  document.addEventListener("click", function (event) {
+    if (
+      !mainNav.contains(event.target) &&
+      !menuToggle.contains(event.target)
+    ) {
+      closeMenu();
+    }
+  });
 
-    document.addEventListener("click", event => {
-
-        if (
-            !mainNav.contains(event.target) &&
-            !menuToggle.contains(event.target)
-        ) {
-
-            mainNav.classList.remove("open");
-
-            menuToggle.setAttribute("aria-expanded", "false");
-            menuToggle.setAttribute("aria-label", "Open navigation menu");
-
-        }
-
-    });
-
+  // Close with the Escape key.
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape") {
+      closeMenu();
+    }
+  });
 }
 
 
@@ -87,19 +91,15 @@ if (menuToggle && mainNav) {
 const whatsappFloat = document.getElementById("whatsappFloat");
 
 if (whatsappFloat) {
-
-    whatsappFloat.href = whatsappLink;
-    whatsappFloat.target = "_blank";
-    whatsappFloat.rel = "noopener noreferrer";
-
+  whatsappFloat.href = whatsappLink;
+  whatsappFloat.target = "_blank";
+  whatsappFloat.rel = "noopener noreferrer";
 }
 
-document.querySelectorAll(".whatsapp-contact").forEach(button => {
-
-    button.href = whatsappLink;
-    button.target = "_blank";
-    button.rel = "noopener noreferrer";
-
+document.querySelectorAll(".whatsapp-contact").forEach(function (button) {
+  button.href = whatsappLink;
+  button.target = "_blank";
+  button.rel = "noopener noreferrer";
 });
 
 
@@ -108,87 +108,65 @@ document.querySelectorAll(".whatsapp-contact").forEach(button => {
 ========================================= */
 
 const heroSlides = document.querySelectorAll(".hero-slide");
+
 const heroIndicators = document.querySelectorAll(
-    ".hero-indicators button, .hero-indicators span"
+  ".hero-indicators button"
 );
 
 let currentHeroSlide = 0;
 let heroSlideshowTimer = null;
 
 function showHeroSlide(index) {
+  if (!heroSlides.length) return;
 
-    if (!heroSlides.length) return;
+  currentHeroSlide = index;
 
-    heroSlides.forEach((slide, slideIndex) => {
+  heroSlides.forEach(function (slide, slideIndex) {
+    slide.classList.toggle("active", slideIndex === index);
+  });
 
-        slide.classList.toggle("active", slideIndex === index);
+  heroIndicators.forEach(function (indicator, indicatorIndex) {
+    indicator.classList.toggle(
+      "active",
+      indicatorIndex === index
+    );
 
-    });
-
-    heroIndicators.forEach((indicator, indicatorIndex) => {
-
-        indicator.classList.toggle(
-            "active",
-            indicatorIndex === index
-        );
-
-        if (indicator.tagName === "BUTTON") {
-
-            indicator.setAttribute(
-                "aria-pressed",
-                indicatorIndex === index ? "true" : "false"
-            );
-
-        }
-
-    });
-
-    currentHeroSlide = index;
-
+    indicator.setAttribute(
+      "aria-pressed",
+      indicatorIndex === index ? "true" : "false"
+    );
+  });
 }
 
 function nextHeroSlide() {
+  if (!heroSlides.length) return;
 
-    if (!heroSlides.length) return;
+  const nextIndex =
+    (currentHeroSlide + 1) % heroSlides.length;
 
-    const nextIndex = (currentHeroSlide + 1) % heroSlides.length;
-
-    showHeroSlide(nextIndex);
-
+  showHeroSlide(nextIndex);
 }
 
 function startHeroSlideshow() {
+  if (heroSlides.length <= 1) return;
 
-    if (heroSlides.length <= 1) return;
+  clearInterval(heroSlideshowTimer);
 
-    clearInterval(heroSlideshowTimer);
-
-    heroSlideshowTimer = setInterval(nextHeroSlide, 7000);
-
+  heroSlideshowTimer = setInterval(nextHeroSlide, 7000);
 }
 
-// Allow users to select a slide using its indicator
+heroIndicators.forEach(function (indicator, index) {
+  indicator.addEventListener("click", function () {
+    if (index >= heroSlides.length) return;
 
-heroIndicators.forEach((indicator, index) => {
-
-    indicator.addEventListener("click", () => {
-
-        if (index >= heroSlides.length) return;
-
-        showHeroSlide(index);
-        startHeroSlideshow();
-
-    });
-
+    showHeroSlide(index);
+    startHeroSlideshow();
+  });
 });
 
-// Start slideshow
-
 if (heroSlides.length > 0) {
-
-    showHeroSlide(0);
-    startHeroSlideshow();
-
+  showHeroSlide(0);
+  startHeroSlideshow();
 }
 
 
@@ -196,17 +174,27 @@ if (heroSlides.length > 0) {
    5. ROOFING PRICE CALCULATOR
 ========================================= */
 
-// Prices remain unconfirmed until supplied.
-// Enter confirmed prices per metre here later.
+// Add confirmed prices per metre here when supplied.
+// Do not enter estimated or unconfirmed prices.
 
 const roofingPrices = {
+  "box-profile": null,
+  "tile-profile": null,
+  "stone-coated": null,
+  "corrugated": null,
+  "industrial": null
+};
 
-    "box-profile": null,
-    "tile-profile": null,
-    "stone-coated": null,
-    "corrugated": null,
-    "industrial": null
+// Connect each selectable product to its category.
 
+const productCategories = {
+  "MaxCover": "box-profile",
+  "Covermax": "box-profile",
+  "Dumu Rangi Box Profile": "box-profile",
+  "Versatile": "tile-profile",
+  "Orientile": "tile-profile",
+  "Elegantile": "tile-profile",
+  "Galsheet Resincot": "corrugated"
 };
 
 const calcProduct = document.getElementById("calcProduct");
@@ -220,140 +208,65 @@ const estimatedTotal = document.getElementById("estimatedTotal");
 
 let selectedMetres = 2;
 
-
-// Format Kenyan currency
-
 function formatCurrency(amount) {
-
-    return new Intl.NumberFormat("en-KE", {
-
-        style: "currency",
-        currency: "KES",
-        maximumFractionDigits: 2
-
-    }).format(amount);
-
+  return new Intl.NumberFormat("en-KE", {
+    style: "currency",
+    currency: "KES",
+    maximumFractionDigits: 2
+  }).format(amount);
 }
-
-
-// Get selected product price
 
 function getSelectedPrice() {
+  if (!calcProduct || !calcProduct.value) return null;
 
-    if (!calcProduct) return null;
+  const category = productCategories[calcProduct.value];
 
-    const selectedValue = calcProduct.value
-        .toLowerCase()
-        .trim()
-        .replace(/\s+/g, "-");
+  if (!category) return null;
 
-    if (
-        Object.prototype.hasOwnProperty.call(
-            roofingPrices,
-            selectedValue
-        )
-    ) {
-
-        return roofingPrices[selectedValue];
-
-    }
-
-    return null;
-
+  return roofingPrices[category];
 }
-
-
-// Update calculator display
 
 function updateCalculator() {
+  const price = getSelectedPrice();
 
-    const price = getSelectedPrice();
+  if (metreQuantity) {
+    metreQuantity.textContent = selectedMetres;
+  }
 
-    // Display selected metres
+  if (pricePerMetre) {
+    pricePerMetre.textContent =
+      price === null
+        ? "To be confirmed"
+        : formatCurrency(price);
+  }
 
-    if (metreQuantity) {
-
-        if (metreQuantity.tagName === "INPUT") {
-
-            metreQuantity.value = selectedMetres;
-
-        } else {
-
-            metreQuantity.textContent = selectedMetres;
-
-        }
-
-    }
-
-    // Display price per metre
-
-    if (pricePerMetre) {
-
-        pricePerMetre.textContent =
-            price === null
-                ? "To be confirmed"
-                : formatCurrency(price);
-
-    }
-
-    // Display estimated total
-
-    if (estimatedTotal) {
-
-        estimatedTotal.textContent =
-            price === null
-                ? "Price to be confirmed"
-                : formatCurrency(selectedMetres * price);
-
-    }
-
+  if (estimatedTotal) {
+    estimatedTotal.textContent =
+      price === null
+        ? "To be confirmed"
+        : formatCurrency(selectedMetres * price);
+  }
 }
-
-
-// Decrease metres
 
 if (decreaseMetres) {
-
-    decreaseMetres.addEventListener("click", () => {
-
-        if (selectedMetres > 1) {
-
-            selectedMetres--;
-
-            updateCalculator();
-
-        }
-
-    });
-
+  decreaseMetres.addEventListener("click", function () {
+    if (selectedMetres > 1) {
+      selectedMetres--;
+      updateCalculator();
+    }
+  });
 }
-
-
-// Increase metres
 
 if (increaseMetres) {
-
-    increaseMetres.addEventListener("click", () => {
-
-        selectedMetres++;
-
-        updateCalculator();
-
-    });
-
+  increaseMetres.addEventListener("click", function () {
+    selectedMetres++;
+    updateCalculator();
+  });
 }
-
-
-// Update when product changes
 
 if (calcProduct) {
-
-    calcProduct.addEventListener("change", updateCalculator);
-
+  calcProduct.addEventListener("change", updateCalculator);
 }
-
-
-// Initialise calculator
 
 updateCalculator();
 
@@ -362,31 +275,20 @@ updateCalculator();
    6. FAQ INTERACTION
 ========================================= */
 
-// HTML details elements open and close automatically.
-// This section ensures only one FAQ is open at a time.
+// Only one FAQ item stays open at a time.
 
 const faqItems = document.querySelectorAll(".faq-item");
 
-faqItems.forEach(item => {
-
-    item.addEventListener("toggle", () => {
-
-        if (item.open) {
-
-            faqItems.forEach(otherItem => {
-
-                if (otherItem !== item) {
-
-                    otherItem.open = false;
-
-                }
-
-            });
-
+faqItems.forEach(function (item) {
+  item.addEventListener("toggle", function () {
+    if (item.open) {
+      faqItems.forEach(function (otherItem) {
+        if (otherItem !== item) {
+          otherItem.open = false;
         }
-
-    });
-
+      });
+    }
+  });
 });
 
 
@@ -397,9 +299,7 @@ faqItems.forEach(item => {
 const currentYear = document.getElementById("currentYear");
 
 if (currentYear) {
-
-    currentYear.textContent = new Date().getFullYear();
-
+  currentYear.textContent = new Date().getFullYear();
 }
 
 
@@ -407,31 +307,23 @@ if (currentYear) {
    8. SMOOTH SECTION NAVIGATION
 ========================================= */
 
-document.querySelectorAll('a[href^="#"]').forEach(link => {
+document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+  link.addEventListener("click", function (event) {
+    const targetId = link.getAttribute("href");
 
-    link.addEventListener("click", event => {
+    if (!targetId || targetId === "#") return;
 
-        const targetId = link.getAttribute("href");
+    const target = document.querySelector(targetId);
 
-        if (!targetId || targetId === "#") return;
+    if (target) {
+      event.preventDefault();
 
-        const target = document.querySelector(targetId);
-
-        if (target) {
-
-            event.preventDefault();
-
-            target.scrollIntoView({
-
-                behavior: "smooth",
-                block: "start"
-
-            });
-
-        }
-
-    });
-
+      target.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+    }
+  });
 });
 
 
@@ -439,14 +331,7 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
    9. WEBSITE INITIALISATION
 ========================================= */
 
-document.addEventListener("DOMContentLoaded", () => {
-
-    console.log("MABATI ROLLING MILLS website loaded.");
-
-    console.log("WhatsApp contact:", WHATSAPP_NUMBER);
-
-    console.log("Hero slides found:", heroSlides.length);
-
-    console.log("FAQ items found:", faqItems.length);
-
-});
+console.log("MABATI ROLLING MILLS website loaded.");
+console.log("WhatsApp contact:", WHATSAPP_NUMBER);
+console.log("Hero slides found:", heroSlides.length);
+console.log("FAQ items found:", faqItems.length);
