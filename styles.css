@@ -35,7 +35,7 @@ a {
   color: inherit;
 }
 
-button, select {
+button, select, input, textarea {
   font: inherit;
 }
 
@@ -113,7 +113,7 @@ img {
   white-space: nowrap;
 }
 
-/* THREE HORIZONTAL LINES MENU */
+/* HAMBURGER MENU */
 
 .menu-toggle {
   display: flex;
@@ -142,8 +142,6 @@ img {
   transition: transform .2s ease, opacity .2s ease;
   pointer-events: none;
 }
-
-/* Turns the three lines into an X when open */
 
 .menu-toggle[aria-expanded="true"] span:first-child {
   transform: translateY(8px) rotate(45deg);
@@ -182,14 +180,8 @@ img {
 }
 
 @keyframes menuDrop {
-  from {
-    opacity: 0;
-    transform: translateY(-7px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(-7px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .main-nav a {
@@ -384,7 +376,7 @@ img {
 
 .about-content h2,
 .section-heading h2,
-.calculator-copy h2,
+.quotation-copy h2,
 .contact-layout h2 {
   font-family: "Montserrat", sans-serif;
   color: var(--navy);
@@ -445,7 +437,7 @@ img {
 
 .category-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 14px;
 }
 
@@ -534,10 +526,16 @@ img {
   margin-top: 4px;
 }
 
+.concealed-fix-group {
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+}
+
 .product-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 21px;
+  align-items: stretch;
 }
 
 .product-card {
@@ -546,10 +544,11 @@ img {
   overflow: hidden;
   background: white;
   transition: .3s;
+  min-width: 0;
 }
 
 .product-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-4px);
   box-shadow: var(--shadow);
   border-color: #c3d9e8;
 }
@@ -571,7 +570,7 @@ img {
 }
 
 .product-card:hover .product-image img {
-  transform: scale(1.05);
+  transform: scale(1.04);
 }
 
 .product-info {
@@ -599,10 +598,117 @@ img {
 
 .text-link {
   display: inline-block;
-  margin-top: 15px;
+  margin-top: 12px;
   color: var(--blue);
   font-size: 13px;
   font-weight: 800;
+}
+
+/* INDIVIDUAL PRODUCT CALCULATORS */
+
+.product-calculator {
+  border-top: 1px solid var(--border);
+  background: #f8fbfd;
+  padding: 15px;
+}
+
+.product-calculator h5 {
+  color: var(--navy);
+  font-size: 13px;
+  margin-bottom: 12px;
+}
+
+.product-calculator label {
+  display: block;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 800;
+  margin-bottom: 5px;
+}
+
+.product-calculator select {
+  width: 100%;
+  height: 39px;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  background: white;
+  color: var(--text);
+  padding: 0 9px;
+  margin-bottom: 11px;
+  font-size: 12px;
+}
+
+.product-calc-quantity {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 39px;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  overflow: hidden;
+  background: white;
+  margin-bottom: 12px;
+}
+
+.product-calc-quantity button {
+  width: 38px;
+  height: 100%;
+  border: 0;
+  background: #eaf2f7;
+  color: var(--navy);
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.product-calc-quantity button:hover {
+  background: #d7e8f3;
+}
+
+.product-calc-quantity input {
+  width: 100%;
+  min-width: 0;
+  height: 100%;
+  border: 0;
+  outline: 0;
+  text-align: center;
+  color: var(--navy);
+  font-weight: 800;
+  font-size: 13px;
+  background: white;
+}
+
+.product-calc-results {
+  border-top: 1px solid var(--border);
+  padding-top: 10px;
+}
+
+.product-calc-results > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 6px;
+  font-size: 11px;
+}
+
+.product-calc-results span {
+  color: var(--muted);
+}
+
+.product-calc-results strong {
+  color: var(--navy);
+  text-align: right;
+}
+
+.product-calc-results .calc-total strong {
+  color: var(--blue);
+  font-size: 15px;
+}
+
+.product-calc-note {
+  color: var(--muted);
+  font-size: 10px;
+  line-height: 1.5;
+  margin-top: 8px;
 }
 
 /* ACCESSORIES */
@@ -662,138 +768,6 @@ img {
   margin-top: 16px;
 }
 
-/* CALCULATOR */
-
-.calculator-section {
-  background: var(--deep-navy);
-}
-
-.calculator-layout {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 75px;
-  align-items: center;
-}
-
-.calculator-copy h2 {
-  color: white;
-}
-
-.calculator-copy > p {
-  color: #c1d0dc;
-  font-size: 15px;
-  margin-top: 18px;
-}
-
-.calculator-copy .calculator-note {
-  color: #9db6ca;
-  font-size: 13px;
-}
-
-.calculator-box {
-  background: white;
-  border-radius: 10px;
-  padding: 32px;
-  box-shadow: 0 20px 60px rgba(0,0,0,.2);
-}
-
-.calculator-box h3 {
-  color: var(--navy);
-  font-family: "Montserrat", sans-serif;
-  font-size: 22px;
-  margin-bottom: 24px;
-}
-
-.calculator-box label {
-  display: block;
-  color: var(--text);
-  font-size: 14px;
-  font-weight: 800;
-  margin-bottom: 9px;
-}
-
-.calculator-box select {
-  width: 100%;
-  height: 50px;
-  padding: 0 13px;
-  border: 1px solid var(--border);
-  border-radius: 5px;
-  background: white;
-  color: var(--text);
-  margin-bottom: 21px;
-  outline-color: var(--blue);
-}
-
-.quantity-control {
-  display: flex;
-  align-items: center;
-  border: 1px solid var(--border);
-  border-radius: 5px;
-  width: 175px;
-  height: 48px;
-  overflow: hidden;
-}
-
-.quantity-control button {
-  height: 100%;
-  width: 49px;
-  background: #f0f5f8;
-  border: none;
-  color: var(--navy);
-  font-size: 23px;
-}
-
-.quantity-control button:hover {
-  background: #dbeaf4;
-}
-
-.quantity-control output {
-  flex: 1;
-  text-align: center;
-  font-weight: 800;
-  color: var(--navy);
-  font-size: 16px;
-}
-
-.price-summary {
-  border-top: 1px solid var(--border);
-  margin-top: 25px;
-  padding-top: 21px;
-}
-
-.price-summary > div {
-  display: flex;
-  justify-content: space-between;
-  gap: 15px;
-  margin-bottom: 15px;
-}
-
-.price-summary span {
-  color: var(--muted);
-  font-size: 14px;
-}
-
-.price-summary strong {
-  color: var(--navy);
-  font-size: 15px;
-}
-
-.price-summary > div:last-child strong {
-  color: var(--blue);
-  font-size: 21px;
-}
-
-.calculator-note {
-  color: var(--muted);
-  font-size: 12px;
-  margin-top: 9px;
-}
-
-.calculator-button {
-  width: 100%;
-  margin-top: 21px;
-}
-
 /* COLOURS */
 
 .colours-section {
@@ -829,7 +803,7 @@ img {
   margin-top: 24px;
 }
 
-/* GALLERY */
+/* OUR PROJECTS */
 
 .gallery-section {
   background: #f3f7fa;
@@ -852,6 +826,86 @@ img {
   font-size: 17px;
   font-weight: 800;
   overflow: hidden;
+}
+
+/* QUOTATION FORM */
+
+.quotation-section {
+  background: #f3f7fa;
+}
+
+.quotation-layout {
+  display: grid;
+  grid-template-columns: .85fr 1.15fr;
+  gap: 65px;
+  align-items: start;
+}
+
+.quotation-copy h2 {
+  margin-bottom: 17px;
+}
+
+.quotation-copy > p {
+  color: var(--muted);
+  font-size: 15px;
+  margin-bottom: 15px;
+}
+
+.quotation-note {
+  font-size: 13px !important;
+  color: #718394 !important;
+}
+
+.quotation-form {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: var(--shadow);
+}
+
+.quotation-form h3 {
+  color: var(--navy);
+  font-family: "Montserrat", sans-serif;
+  font-size: 22px;
+  margin-bottom: 22px;
+}
+
+.quotation-form label {
+  display: block;
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 800;
+  margin: 14px 0 7px;
+}
+
+.quotation-form input,
+.quotation-form select,
+.quotation-form textarea {
+  display: block;
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  background: white;
+  color: var(--text);
+  padding: 12px;
+  outline-color: var(--blue);
+  font-size: 14px;
+}
+
+.quotation-form input,
+.quotation-form select {
+  min-height: 47px;
+}
+
+.quotation-form textarea {
+  resize: vertical;
+  min-height: 105px;
+}
+
+.quotation-submit {
+  width: 100%;
+  margin-top: 22px;
 }
 
 /* FAQ */
@@ -1002,43 +1056,41 @@ img {
   font-size: 12px;
 }
 
-/* FLOATING WHATSAPP */
+/* FLOATING WHATSAPP: ICON ONLY, REPEATS EVERY 5 SECONDS */
 
 .floating-whatsapp {
   position: fixed;
   right: 22px;
   bottom: 23px;
   z-index: 1100;
+  width: 58px;
+  height: 58px;
   display: flex;
   align-items: center;
-  gap: 10px;
+  justify-content: center;
   background: #159d58;
   color: white;
-  padding: 12px 19px;
-  border-radius: 40px;
+  border-radius: 50%;
   box-shadow: 0 8px 25px rgba(0,0,0,.2);
-  font-size: 13px;
-  font-weight: 800;
-  transition: .25s;
-  animation: whatsappBounce 3s ease-in-out infinite;
+  transition: background .25s, box-shadow .25s;
+  animation: whatsappBounce 5s ease-in-out infinite;
 }
 
 .floating-whatsapp:hover {
   background: #0c8246;
-  animation-play-state: paused;
+  box-shadow: 0 10px 28px rgba(0,0,0,.25);
 }
 
 .whatsapp-icon {
-  font-size: 22px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 32px;
+  height: 32px;
+  display: block;
 }
 
 @keyframes whatsappBounce {
-  0%, 80%, 100% { transform: translateY(0); }
-  87% { transform: translateY(-7px); }
-  93% { transform: translateY(0); }
+  0%, 82%, 100% { transform: translateY(0); }
+  87% { transform: translateY(-8px); }
+  92% { transform: translateY(0); }
 }
 
 /* TABLETS */
@@ -1049,7 +1101,7 @@ img {
   }
 
   .category-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .colour-grid {
@@ -1058,6 +1110,10 @@ img {
 
   .footer-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .quotation-layout {
+    gap: 35px;
   }
 }
 
@@ -1111,7 +1167,7 @@ img {
   }
 
   .about-grid,
-  .calculator-layout {
+  .quotation-layout {
     grid-template-columns: 1fr;
     gap: 30px;
   }
@@ -1143,7 +1199,7 @@ img {
   }
 
   .product-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 12px;
   }
 
@@ -1172,6 +1228,18 @@ img {
     font-size: 12px;
   }
 
+  .product-calculator {
+    padding: 11px;
+  }
+
+  .product-calculator h5 {
+    font-size: 12px;
+  }
+
+  .product-calc-results > div {
+    font-size: 10px;
+  }
+
   .accessory-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 12px;
@@ -1187,10 +1255,6 @@ img {
 
   .accessory-card p {
     font-size: 12px;
-  }
-
-  .calculator-box {
-    padding: 24px;
   }
 
   .colour-grid {
@@ -1209,6 +1273,10 @@ img {
 
   .gallery-placeholder {
     height: 210px;
+  }
+
+  .quotation-form {
+    padding: 22px;
   }
 
   .faq-item summary {
@@ -1247,10 +1315,15 @@ img {
   }
 
   .floating-whatsapp {
-    right: 13px;
-    bottom: 15px;
-    padding: 11px 15px;
-    font-size: 12px;
+    right: 14px;
+    bottom: 16px;
+    width: 54px;
+    height: 54px;
+  }
+
+  .whatsapp-icon {
+    width: 30px;
+    height: 30px;
   }
 }
 
@@ -1278,15 +1351,27 @@ img {
     grid-template-columns: 1fr;
   }
 
-  .calculator-box {
-    padding: 19px;
-  }
-
   .category-shortcut {
     padding: 15px 7px;
   }
 
   .category-icon {
     font-size: 25px;
+  }
+}
+
+/* REDUCED MOTION ACCESSIBILITY */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
   }
 }
