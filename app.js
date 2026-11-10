@@ -1,337 +1,436 @@
 
-/* =========================================
-   MABATI ROLLING MILLS
-   MAIN WEBSITE JAVASCRIPT
-========================================= */
-
-
-/* =========================================
-   1. WHATSAPP CONTACT DETAILS
-========================================= */
-
-const WHATSAPP_NUMBER = "254756393875";
-
-const WHATSAPP_MESSAGE = `Hello MRM Team,
-
-I hope you are doing well. I am interested in placing an order for your roofing products. Kindly assist me with the available products, pricing and ordering process.
-
-Thank you. I look forward to your response.`;
-
-const whatsappLink =
-  `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
-
-
-/* =========================================
-   2. NAVIGATION MENU
-========================================= */
-
-const menuToggle = document.getElementById("menuToggle");
-const mainNav = document.getElementById("mainNav");
-
-function closeMenu() {
-  if (!menuToggle || !mainNav) return;
-
-  mainNav.classList.remove("open");
-  menuToggle.setAttribute("aria-expanded", "false");
-  menuToggle.setAttribute("aria-label", "Open navigation menu");
-}
-
-function openMenu() {
-  if (!menuToggle || !mainNav) return;
-
-  mainNav.classList.add("open");
-  menuToggle.setAttribute("aria-expanded", "true");
-  menuToggle.setAttribute("aria-label", "Close navigation menu");
-}
-
-if (menuToggle && mainNav) {
-
-  menuToggle.addEventListener("click", function (event) {
-    event.stopPropagation();
-
-    const isOpen = mainNav.classList.contains("open");
-
-    if (isOpen) {
-      closeMenu();
-    } else {
-      openMenu();
-    }
-  });
-
-  // Close after selecting a navigation link.
-  mainNav.querySelectorAll("a").forEach(function (link) {
-    link.addEventListener("click", function () {
-      closeMenu();
-    });
-  });
-
-  // Close when tapping anywhere outside the menu.
-  document.addEventListener("click", function (event) {
-    if (
-      !mainNav.contains(event.target) &&
-      !menuToggle.contains(event.target)
-    ) {
-      closeMenu();
-    }
-  });
-
-  // Close with the Escape key.
-  document.addEventListener("keydown", function (event) {
-    if (event.key === "Escape") {
-      closeMenu();
-    }
-  });
-}
-
-
-/* =========================================
-   3. WHATSAPP ENQUIRY BUTTONS
-========================================= */
-
-const whatsappFloat = document.getElementById("whatsappFloat");
-
-if (whatsappFloat) {
-  whatsappFloat.href = whatsappLink;
-  whatsappFloat.target = "_blank";
-  whatsappFloat.rel = "noopener noreferrer";
-}
-
-document.querySelectorAll(".whatsapp-contact").forEach(function (button) {
-  button.href = whatsappLink;
-  button.target = "_blank";
-  button.rel = "noopener noreferrer";
-});
-
-
-/* =========================================
-   4. HERO IMAGE SLIDESHOW
-========================================= */
-
-const heroSlides = document.querySelectorAll(".hero-slide");
-
-const heroIndicators = document.querySelectorAll(
-  ".hero-indicators button"
-);
-
-let currentHeroSlide = 0;
-let heroSlideshowTimer = null;
-
-function showHeroSlide(index) {
-  if (!heroSlides.length) return;
-
-  currentHeroSlide = index;
-
-  heroSlides.forEach(function (slide, slideIndex) {
-    slide.classList.toggle("active", slideIndex === index);
-  });
-
-  heroIndicators.forEach(function (indicator, indicatorIndex) {
-    indicator.classList.toggle(
-      "active",
-      indicatorIndex === index
-    );
-
-    indicator.setAttribute(
-      "aria-pressed",
-      indicatorIndex === index ? "true" : "false"
-    );
-  });
-}
-
-function nextHeroSlide() {
-  if (!heroSlides.length) return;
-
-  const nextIndex =
-    (currentHeroSlide + 1) % heroSlides.length;
-
-  showHeroSlide(nextIndex);
-}
-
-function startHeroSlideshow() {
-  if (heroSlides.length <= 1) return;
-
-  clearInterval(heroSlideshowTimer);
-
-  heroSlideshowTimer = setInterval(nextHeroSlide, 7000);
-}
-
-heroIndicators.forEach(function (indicator, index) {
-  indicator.addEventListener("click", function () {
-    if (index >= heroSlides.length) return;
-
-    showHeroSlide(index);
-    startHeroSlideshow();
-  });
-});
-
-if (heroSlides.length > 0) {
-  showHeroSlide(0);
-  startHeroSlideshow();
-}
-
-
-/* =========================================
-   5. ROOFING PRICE CALCULATOR
-========================================= */
-
-// Add confirmed prices per metre here when supplied.
-// Do not enter estimated or unconfirmed prices.
-
-const roofingPrices = {
-  "box-profile": null,
-  "tile-profile": null,
-  "stone-coated": null,
-  "corrugated": null,
-  "industrial": null
-};
-
-// Connect each selectable product to its category.
-
-const productCategories = {
-  "MaxCover": "box-profile",
-  "Covermax": "box-profile",
-  "Dumu Rangi Box Profile": "box-profile",
-  "Versatile": "tile-profile",
-  "Orientile": "tile-profile",
-  "Elegantile": "tile-profile",
-  "Galsheet Resincot": "corrugated"
-};
-
-const calcProduct = document.getElementById("calcProduct");
-
-const decreaseMetres = document.getElementById("decreaseMetres");
-const metreQuantity = document.getElementById("metreQuantity");
-const increaseMetres = document.getElementById("increaseMetres");
-
-const pricePerMetre = document.getElementById("pricePerMetre");
-const estimatedTotal = document.getElementById("estimatedTotal");
-
-let selectedMetres = 2;
-
-function formatCurrency(amount) {
-  return new Intl.NumberFormat("en-KE", {
-    style: "currency",
-    currency: "KES",
-    maximumFractionDigits: 2
-  }).format(amount);
-}
-
-function getSelectedPrice() {
-  if (!calcProduct || !calcProduct.value) return null;
-
-  const category = productCategories[calcProduct.value];
-
-  if (!category) return null;
-
-  return roofingPrices[category];
-}
-
-function updateCalculator() {
-  const price = getSelectedPrice();
-
-  if (metreQuantity) {
-    metreQuantity.textContent = selectedMetres;
-  }
-
-  if (pricePerMetre) {
-    pricePerMetre.textContent =
-      price === null
-        ? "To be confirmed"
-        : formatCurrency(price);
-  }
-
-  if (estimatedTotal) {
-    estimatedTotal.textContent =
-      price === null
-        ? "To be confirmed"
-        : formatCurrency(selectedMetres * price);
-  }
-}
-
-if (decreaseMetres) {
-  decreaseMetres.addEventListener("click", function () {
-    if (selectedMetres > 1) {
-      selectedMetres--;
-      updateCalculator();
-    }
-  });
-}
-
-if (increaseMetres) {
-  increaseMetres.addEventListener("click", function () {
-    selectedMetres++;
-    updateCalculator();
-  });
-}
-
-if (calcProduct) {
-  calcProduct.addEventListener("change", updateCalculator);
-}
-
-updateCalculator();
-
-
-/* =========================================
-   6. FAQ INTERACTION
-========================================= */
-
-// Only one FAQ item stays open at a time.
-
-const faqItems = document.querySelectorAll(".faq-item");
-
-faqItems.forEach(function (item) {
-  item.addEventListener("toggle", function () {
-    if (item.open) {
-      faqItems.forEach(function (otherItem) {
-        if (otherItem !== item) {
-          otherItem.open = false;
-        }
-      });
-    }
-  });
-});
-
-
-/* =========================================
-   7. FOOTER YEAR
-========================================= */
-
-const currentYear = document.getElementById("currentYear");
-
-if (currentYear) {
-  currentYear.textContent = new Date().getFullYear();
-}
-
-
-/* =========================================
-   8. SMOOTH SECTION NAVIGATION
-========================================= */
-
-document.querySelectorAll('a[href^="#"]').forEach(function (link) {
-  link.addEventListener("click", function (event) {
-    const targetId = link.getAttribute("href");
-
-    if (!targetId || targetId === "#") return;
-
-    const target = document.querySelector(targetId);
-
-    if (target) {
-      event.preventDefault();
-
-      target.scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-      });
-    }
-  });
-});
-
-
-/* =========================================
-   9. WEBSITE INITIALISATION
-========================================= */
-
-console.log("MABATI ROLLING MILLS website loaded.");
-console.log("WhatsApp contact:", WHATSAPP_NUMBER);
-console.log("Hero slides found:", heroSlides.length);
-console.log("FAQ items found:", faqItems.length);
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#092b49">
+  <meta name="description" content="Explore Mabati Rolling Mills roofing products, profiles, accessories and request a roofing quotation.">
+  <title>MABATI ROLLING MILLS</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="site-header" id="home">
+  <div class="container header-inner">
+    <a href="#home" class="brand" aria-label="Mabati Rolling Mills home">
+      <img src="images/mrm-logo.png" alt="MRM logo">
+      <span class="brand-fallback">MABATI ROLLING MILLS</span>
+    </a>
+
+    <a href="#roofing-sheets" class="header-cta">Explore Products</a>
+
+    <button class="menu-toggle" id="menuToggle" type="button"
+      aria-label="Open navigation menu" aria-expanded="false"
+      aria-controls="mainNav">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+      <a href="#home">Home</a>
+      <a href="#about">About MRM</a>
+      <a href="#roofing-sheets">Roofing Categories</a>
+      <a href="#accessories">Roofing Accessories</a>
+      <a href="#gallery">Our Projects</a>
+      <a href="#faq">Frequently Asked Questions</a>
+      <a href="#quotation">Get a Quotation</a>
+      <a href="#contact">Contact Us</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-slideshow">
+      <div class="hero-slide active"><img src="images/hero-1.jpg" alt="Modern residential house with premium roofing"></div>
+      <div class="hero-slide"><img src="images/hero-2.jpg" alt="Contemporary residential roofing"></div>
+      <div class="hero-slide"><img src="images/hero-3.jpg" alt="Commercial building with roofing"></div>
+      <div class="hero-slide"><img src="images/hero-4.jpg" alt="Residential property with elegant roof"></div>
+      <div class="hero-slide"><img src="images/hero-5.jpg" alt="Commercial roofing project"></div>
+      <div class="hero-slide"><img src="images/hero-6.jpg" alt="Modern architectural roofing design"></div>
+    </div>
+
+    <div class="hero-overlay"></div>
+
+    <div class="container hero-content">
+      <span class="eyebrow">MABATI ROLLING MILLS</span>
+      <h1>Build Strong.<br><span>Roof Beautifully.</span></h1>
+      <p>Discover roofing solutions for residential, commercial and industrial projects. Explore roofing profiles, colours and accessories.</p>
+      <div class="hero-buttons">
+        <a href="#roofing-sheets" class="btn btn-primary">Explore Roofing Sheets</a>
+        <a href="#quotation" class="btn btn-outline">Get a Quotation</a>
+      </div>
+    </div>
+
+    <div class="hero-indicators">
+      <button class="active" type="button" aria-label="Show image 1"></button>
+      <button type="button" aria-label="Show image 2"></button>
+      <button type="button" aria-label="Show image 3"></button>
+      <button type="button" aria-label="Show image 4"></button>
+      <button type="button" aria-label="Show image 5"></button>
+      <button type="button" aria-label="Show image 6"></button>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about-section section-padding" id="about">
+    <div class="container about-grid">
+      <div class="about-content">
+        <span class="section-label">ABOUT MABATI ROLLING MILLS</span>
+        <h2>Roofing solutions built around quality and innovation.</h2>
+        <p>Mabati Rolling Mills (MRM) is a recognised Kenyan manufacturer of steel roofing and building solutions. Its roofing product range includes different profiles, finishes and designs for residential, commercial and industrial applications.</p>
+        <p>Whether you are planning a new home, upgrading an existing roof or working on a commercial development, explore the available roofing options and identify products that suit your project requirements.</p>
+        <a href="#roofing-sheets" class="btn btn-primary">Explore MRM Products</a>
+      </div>
+      <div class="about-highlight">
+        <div>
+          <span class="about-mark">MRM</span>
+          <h3>Roofing for Every Project</h3>
+          <p>Explore different roofing profiles, styles, finishes and complementary accessories.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOUR MAIN CATEGORIES -->
+  <section class="category-shortcuts">
+    <div class="container">
+      <div class="section-heading">
+        <div>
+          <span class="section-label">OUR ROOFING RANGE</span>
+          <h2>Explore Roofing Categories</h2>
+        </div>
+      </div>
+      <div class="category-grid">
+        <a href="#box-profile" class="category-shortcut"><span class="category-icon">▤</span><strong>Box Profile</strong><small>Modern roofing profiles</small></a>
+        <a href="#tile-profile" class="category-shortcut"><span class="category-icon">⌂</span><strong>Tile Profile</strong><small>Elegant roof designs</small></a>
+        <a href="#stone-coated" class="category-shortcut"><span class="category-icon">◆</span><strong>Stone-Coated Roofing</strong><small>Distinctive finishes</small></a>
+        <a href="#corrugated" class="category-shortcut"><span class="category-icon">▥</span><strong>Corrugated Roofing</strong><small>Classic roofing profiles</small></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROOFING CATALOGUE -->
+  <section class="products-section section-padding" id="roofing-sheets">
+    <div class="container">
+      <div class="section-heading">
+        <div>
+          <span class="section-label">EXPLORE OUR CATALOGUE</span>
+          <h2>Roofing Sheets</h2>
+          <p>Explore four main roofing categories and the available product options.</p>
+        </div>
+      </div>
+
+      <!-- BOX PROFILE -->
+      <div class="product-group" id="box-profile">
+        <div class="group-heading">
+          <h3>01. Box Profile Roofing Sheets</h3>
+          <p>Practical and modern roofing profiles for different building applications.</p>
+        </div>
+        <div class="product-grid">
+          <article class="product-card" data-product="MaxCover" data-category="box-profile">
+            <div class="product-image"><img src="images/maxcover.jpg" alt="MRM MaxCover roofing sheet"></div>
+            <div class="product-info"><span class="product-brand">MRM PRODUCT</span><h4>MaxCover</h4><p>Box profile roofing sheet.</p><a href="#quotation" class="text-link">Get a Quotation →</a></div>
+          </article>
+          <article class="product-card" data-product="Covermax" data-category="box-profile">
+            <div class="product-image"><img src="images/covermax.jpg" alt="MRM Covermax roofing sheet"></div>
+            <div class="product-info"><span class="product-brand">MRM PRODUCT</span><h4>Covermax</h4><p>Box profile roofing sheet.</p><a href="#quotation" class="text-link">Get a Quotation →</a></div>
+          </article>
+          <article class="product-card" data-product="Dumu Rangi Box Profile" data-category="box-profile">
+            <div class="product-image"><img src="images/dumu-rangi-box.jpg" alt="Dumu Rangi box profile"></div>
+            <div class="product-info"><span class="product-brand">MRM PRODUCT</span><h4>Dumu Rangi Box Profile</h4><p>Colour-coated box profile roofing.</p><a href="#quotation" class="text-link">Get a Quotation →</a></div>
+          </article>
+          <article class="product-card" data-product="IT5 Profile" data-category="box-profile">
+            <div class="product-image"><img src="images/it5.jpg" alt="IT5 roofing profile"></div>
+            <div class="product-info"><span class="product-brand">OTHER MARKET PROFILE</span><h4>IT5 Profile</h4><p>Additional market roofing profile.</p><a href="#quotation" class="text-link">Get a Quotation →</a></div>
+          </article>
+        </div>
+      </div>
+
+      <!-- TILE PROFILE -->
+      <div class="product-group" id="tile-profile">
+        <div class="group-heading">
+          <h3>02. Tile Profile Roofing Sheets</h3>
+          <p>Tile-inspired roofing designs for elegant residential and commercial buildings.</p>
+        </div>
+        <div class="product-grid">
+          <article class="product-card" data-product="Versatile" data-category="tile-profile">
+            <div class="product-image"><img src="images/versatile.jpg" alt="MRM Versatile roofing"></div>
+            <div class="product-info"><span class="product-brand">MRM PRODUCT</span><h4>Versatile</h4><p>Distinctive tile-style roofing profile.</p><a href="#quotation" class="text-link">Get a Quotation →</a></div>
+          </article>
+          <article class="product-card" data-product="Orientile" data-category="tile-profile">
+            <div class="product-image"><img src="images/orientile.jpg" alt="MRM Orientile roofing"></div>
+            <div class="product-info"><span class="product-brand">MRM PRODUCT</span><h4>Orientile</h4><p>Modern tile-style roofing sheet.</p><a href="#quotation" class="text-link">Get a Quotation →</a></div>
+          </article>
+          <article class="product-card" data-product="Elegantile" data-category="tile-profile">
+            <div class="product-image"><img src="images/elegantile.jpg" alt="MRM Elegantile roofing"></div>
+            <div class="product-info"><span class="product-brand">MRM PRODUCT</span><h4>Elegantile</h4><p>Elegant tile-inspired roofing profile.</p><a href="#quotation" class="text-link">Get a Quotation →</a></div>
+          </article>
+          <article class="product-card" data-product="Roman Tile" data-category="tile-profile">
+            <div class="product-image"><img src="images/roman-tile.jpg" alt="Roman tile roofing profile"></div>
+            <div class="product-info"><span class="product-brand">OTHER MARKET PROFILE</span><h4>Roman Tile</h4><p>Additional tile-inspired roofing option.</p><a href="#quotation" class="text-link">Get a Quotation →</a></div>
+          </article>
+        </div>
+      </div>
+
+      <!-- STONE COATED -->
+      <div class="product-group" id="stone-coated">
+        <div class="group-heading">
+          <h3>03. Stone-Coated Roofing</h3>
+          <p>Distinctive textured roofing designs for selected architectural styles.</p>
+        </div>
+        <div class="product-grid">
+          <article class="product-card stone-product" data-product="Lifestile Waves" data-category="stone-coated" data-unit="piece">
+            <div class="product-image"><img src="images/lifestile-waves.jpg" alt="MRM Lifestile Waves"></div>
+            <div class="product-info"><span class="product-brand">MRM PRODUCT</span><h4>Lifestile Waves</h4><p>Stone-coated roofing profile.</p><a href="#quotation" class="text-link">Get a Quotation →</a></div>
+          </article>
+          <article class="product-card stone-product" data-product="Lifestile Shingles" data-category="stone-coated" data-unit="piece">
+            <div class="product-image"><img src="images/lifestile-shingles.jpg" alt="MRM Lifestile Shingles"></div>
+            <div class="product-info"><span class="product-brand">MRM PRODUCT</span><h4>Lifestile Shingles</h4><p>Shingle-style stone-coated roofing.</p><a href="#quotation" class="text-link">Get a Quotation →</a></div>
+          </article>
+          <article class="product-card stone-product" data-product="Lifestile Roman" data-category="stone-coated" data-unit="piece">
+            <div class="product-image"><img src="images/lifestile-roman.jpg" alt="MRM Lifestile Roman"></div>
+            <div class="product-info"><span class="product-brand">MRM PRODUCT</span><h4>Lifestile Roman</h4><p>Roman-style stone-coated roofing.</p><a href="#quotation" class="text-link">Get a Quotation →</a></div>
+          </article>
+        </div>
+      </div>
+
+      <!-- CORRUGATED -->
+      <div class="product-group" id="corrugated">
+        <div class="group-heading">
+          <h3>04. Corrugated Roofing Sheets</h3>
+          <p>Traditional corrugated roofing profiles for a variety of applications.</p>
+        </div>
+        <div class="product-grid">
+          <article class="product-card" data-product="Galsheet Resincot" data-category="corrugated">
+            <div class="product-image"><img src="images/galsheet-resincot.jpg" alt="MRM Galsheet Resincot"></div>
+            <div class="product-info"><span class="product-brand">MRM PRODUCT</span><h4>Galsheet Resincot</h4><p>Corrugated roofing sheet.</p><a href="#quotation" class="text-link">Get a Quotation →</a></div>
+          </article>
+          <article class="product-card" data-product="Unpainted Dumuzas" data-category="corrugated">
+            <div class="product-image"><img src="images/unpainted-dumuzas.jpg" alt="MRM Unpainted Dumuzas"></div>
+            <div class="product-info"><span class="product-brand">MRM PRODUCT</span><h4>Unpainted Dumuzas</h4><p>Unpainted corrugated roofing sheet.</p><a href="#quotation" class="text-link">Get a Quotation →</a></div>
+          </article>
+          <article class="product-card" data-product="Dumu Rangi Corrugated" data-category="corrugated">
+            <div class="product-image"><img src="images/dumu-rangi-corrugated.jpg" alt="MRM Dumu Rangi corrugated"></div>
+            <div class="product-info"><span class="product-brand">MRM PRODUCT</span><h4>Dumu Rangi Corrugated</h4><p>Colour-coated corrugated roofing.</p><a href="#quotation" class="text-link">Get a Quotation →</a></div>
+          </article>
+        </div>
+      </div>
+
+      <!-- CONCEALED FIX SUBSECTION, NOT A FIFTH CATEGORY -->
+      <div class="product-group concealed-fix-group" id="concealed-fix">
+        <div class="group-heading">
+          <h3>Concealed-Fix & Specialised Profiles</h3>
+          <p>Additional profiles for selected commercial, industrial and specialised applications. These are shown as a subsection rather than a separate main roofing category.</p>
+        </div>
+        <div class="product-grid">
+          <article class="product-card" data-product="Saflok" data-category="concealed-fix">
+            <div class="product-image"><img src="images/saflok.jpg" alt="Saflok profile"></div>
+            <div class="product-info"><span class="product-brand">PROFILE LISTING</span><h4>Saflok</h4><p>Concealed-fix roofing profile.</p><a href="#quotation" class="text-link">Get a Quotation →</a></div>
+          </article>
+          <article class="product-card" data-product="Safdeck" data-category="concealed-fix">
+            <div class="product-image"><img src="images/safdeck.jpg" alt="Safdeck profile"></div>
+            <div class="product-info"><span class="product-brand">PROFILE LISTING</span><h4>Safdeck</h4><p>Industrial roofing and cladding profile.</p><a href="#quotation" class="text-link">Get a Quotation →</a></div>
+          </article>
+          <article class="product-card" data-product="Trimflute" data-category="concealed-fix">
+            <div class="product-image"><img src="images/trimflute.jpg" alt="Trimflute profile"></div>
+            <div class="product-info"><span class="product-brand">PROFILE LISTING</span><h4>Trimflute</h4><p>Profile for selected roofing applications.</p><a href="#quotation" class="text-link">Get a Quotation →</a></div>
+          </article>
+          <article class="product-card" data-product="Tekdek" data-category="concealed-fix">
+            <div class="product-image"><img src="images/tekdek.jpg" alt="Tekdek profile"></div>
+            <div class="product-info"><span class="product-brand">PROFILE LISTING</span><h4>Tekdek</h4><p>Industrial roofing profile.</p><a href="#quotation" class="text-link">Get a Quotation →</a></div>
+          </article>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ACCESSORIES -->
+  <section class="accessories-section section-padding" id="accessories">
+    <div class="container">
+      <div class="section-heading">
+        <div><span class="section-label">COMPLETE YOUR ROOF</span><h2>Roofing Accessories</h2><p>Essential components for roofing installation and finishing.</p></div>
+      </div>
+      <div class="accessory-grid">
+        <article class="accessory-card"><div class="accessory-symbol">⌃</div><h3>Ridge Caps</h3><p>Standard, flat, curved and roll-top ridge options.</p><a href="#quotation">Enquire Now →</a></article>
+        <article class="accessory-card"><div class="accessory-symbol">⌄</div><h3>Valley Trays</h3><p>Roof valley components for water drainage.</p><a href="#quotation">Enquire Now →</a></article>
+        <article class="accessory-card"><div class="accessory-symbol">◫</div><h3>Roof Flashings</h3><p>Side-wall, apron and barge flashing options.</p><a href="#quotation">Enquire Now →</a></article>
+        <article class="accessory-card"><div class="accessory-symbol">⚙</div><h3>Roofing Fasteners</h3><p>Roofing screws, nails, washers and fittings.</p><a href="#quotation">Enquire Now →</a></article>
+        <article class="accessory-card"><div class="accessory-symbol">▤</div><h3>Gutters & Downpipes</h3><p>Rainwater collection and drainage components.</p><a href="#quotation">Enquire Now →</a></article>
+        <article class="accessory-card"><div class="accessory-symbol">⌂</div><h3>Roof Ventilation</h3><p>Selected roof ventilation components.</p><a href="#quotation">Enquire Now →</a></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- COLOURS -->
+  <section class="colours-section section-padding" id="colours">
+    <div class="container">
+      <div class="section-heading">
+        <div><span class="section-label">PERSONALISE YOUR ROOF</span><h2>Roofing Colours & Finishes</h2><p>Explore colour options available for selected roofing profiles.</p></div>
+      </div>
+      <div class="colour-grid">
+        <div><span class="colour-swatch" style="background:#183b69"></span><strong>Blue</strong></div>
+        <div><span class="colour-swatch" style="background:#9d2026"></span><strong>Maroon</strong></div>
+        <div><span class="colour-swatch" style="background:#17613b"></span><strong>Green</strong></div>
+        <div><span class="colour-swatch" style="background:#292929"></span><strong>Charcoal</strong></div>
+        <div><span class="colour-swatch" style="background:#6c7076"></span><strong>Grey</strong></div>
+        <div><span class="colour-swatch" style="background:#8c4b24"></span><strong>Brown</strong></div>
+        <div><span class="colour-swatch" style="background:#f1f0e9"></span><strong>Off White</strong></div>
+        <div><span class="colour-swatch" style="background:#a8a8a8"></span><strong>Silver</strong></div>
+      </div>
+      <p class="small-note">Colour availability varies by product, gauge and finish. Confirm current options before ordering.</p>
+    </div>
+  </section>
+
+  <!-- OUR PROJECTS -->
+  <section class="gallery-section section-padding" id="gallery">
+    <div class="container">
+      <div class="section-heading">
+        <div><span class="section-label">ROOFING INSPIRATION</span><h2>Our Projects</h2><p>Explore roofing designs and applications for different buildings.</p></div>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-placeholder"><span>Residential Roofing</span></div>
+        <div class="gallery-placeholder"><span>Modern Roof Designs</span></div>
+        <div class="gallery-placeholder"><span>Commercial Roofing</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUOTATION FORM -->
+  <section class="quotation-section section-padding" id="quotation">
+    <div class="container quotation-layout">
+      <div class="quotation-copy">
+        <span class="section-label">REQUEST PRICING</span>
+        <h2>Get a Roofing Quotation</h2>
+        <p>Provide your project details and send your enquiry directly to the MRM WhatsApp contact.</p>
+        <p class="quotation-note">Your enquiry will open in WhatsApp for you to review and send. A quotation is not submitted until you send the WhatsApp message.</p>
+      </div>
+
+      <form class="quotation-form" id="quotationForm">
+        <h3>Project Details</h3>
+
+        <label for="quoteName">Your Name</label>
+        <input type="text" id="quoteName" name="name" placeholder="Enter your name" required>
+
+        <label for="quotePhone">Phone Number</label>
+        <input type="tel" id="quotePhone" name="phone" placeholder="Enter your phone number">
+
+        <label for="quoteLocation">Project Location</label>
+        <input type="text" id="quoteLocation" name="location" placeholder="Town or county" required>
+
+        <label for="quoteProduct">Select Product</label>
+        <select id="quoteProduct" name="product" required>
+          <option value="">Choose a roofing product</option>
+        </select>
+
+        <label for="quoteGauge">Gauge / Specification</label>
+        <select id="quoteGauge" name="gauge">
+          <option value="">Select if applicable</option>
+          <option value="26G">26G</option>
+          <option value="28G">28G</option>
+          <option value="30G">30G</option>
+          <option value="32G">32G</option>
+          <option value="To be advised">Not sure / To be advised</option>
+        </select>
+
+        <label for="quoteQuantity">Estimated Quantity</label>
+        <input type="number" id="quoteQuantity" name="quantity" min="1" placeholder="Enter metres or pieces">
+
+        <label for="quoteNotes">Additional Requirements</label>
+        <textarea id="quoteNotes" name="notes" rows="4" placeholder="Tell us about your roofing requirements, preferred colour, accessories or delivery needs"></textarea>
+
+        <button type="submit" class="btn btn-primary quotation-submit">Send Quotation Request on WhatsApp</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section section-padding" id="faq">
+    <div class="container">
+      <div class="section-heading">
+        <div><span class="section-label">CUSTOMER INFORMATION</span><h2>Frequently Asked Questions</h2><p>Find quick answers to common questions about roofing products and ordering.</p></div>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item"><summary>What roofing products are available?</summary><div class="faq-answer"><p>The four main categories shown are Box Profile, Tile Profile, Stone-Coated Roofing and Corrugated Roofing.</p><p>Concealed-fix and specialised profiles are listed separately as a subsection. Confirm product availability and specifications when enquiring.</p></div></details>
+        <details class="faq-item"><summary>How do I choose the right roofing sheets?</summary><div class="faq-answer"><p>Consider your building design, roof structure, preferred appearance, required sheet dimensions, finish and budget. A roofing quotation can help establish suitable product specifications.</p></div></details>
+        <details class="faq-item"><summary>How can I get current product prices?</summary><div class="faq-answer"><p>Use the product calculators for the rates displayed on this website, or send a WhatsApp enquiry to confirm current prices and availability.</p></div></details>
+        <details class="faq-item"><summary>Can I request a roofing quotation?</summary><div class="faq-answer"><p>Yes. Complete the quotation form with your product, project location and estimated requirements. The details will be prepared in a WhatsApp message for you to send.</p></div></details>
+        <details class="faq-item"><summary>Do you have roofing accessories?</summary><div class="faq-answer"><p>The catalogue includes common roofing accessories such as ridge caps, valley trays, flashings, fasteners, gutters, downpipes and ventilation items. Confirm availability when enquiring.</p></div></details>
+        <details class="faq-item"><summary>Are different roofing colours available?</summary><div class="faq-answer"><p>Colour options vary depending on the roofing product, finish and specifications. Contact the team to confirm available colours.</p></div></details>
+        <details class="faq-item"><summary>How do the product calculators work?</summary><div class="faq-answer"><p>Select a gauge where applicable and enter the required length or number of pieces. The calculator multiplies the displayed rate by the selected quantity.</p><p>These calculators estimate material cost only. They do not calculate roof area, sheet quantities, accessories or delivery.</p></div></details>
+        <details class="faq-item"><summary>How do I place an order?</summary><div class="faq-answer"><p>Send your enquiry through WhatsApp. The team can assist with product information, pricing, availability and the ordering process.</p></div></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact-section section-padding" id="contact">
+    <div class="container contact-layout">
+      <div>
+        <span class="section-label">LET'S DISCUSS YOUR PROJECT</span>
+        <h2>Ready to place your roofing order?</h2>
+        <p>Contact the team for product information, pricing, specifications and quotation assistance.</p>
+      </div>
+      <div class="contact-actions">
+        <a href="#" class="btn btn-primary whatsapp-contact">Enquire on WhatsApp</a>
+        <a href="#roofing-sheets" class="btn btn-outline-dark">Browse Products</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <h2>MABATI ROLLING MILLS</h2>
+      <p>Explore roofing products, roofing profiles and complementary accessories for residential, commercial and industrial projects.</p>
+    </div>
+    <div>
+      <h3>Explore Website</h3>
+      <a href="#about">About MRM</a>
+      <a href="#roofing-sheets">Roofing Categories</a>
+      <a href="#accessories">Roofing Accessories</a>
+      <a href="#gallery">Our Projects</a>
+      <a href="#faq">Frequently Asked Questions</a>
+      <a href="#quotation">Get a Quotation</a>
+    </div>
+    <div>
+      <h3>Roofing Categories</h3>
+      <a href="#box-profile">Box Profile</a>
+      <a href="#tile-profile">Tile Profile</a>
+      <a href="#stone-coated">Stone-Coated Roofing</a>
+      <a href="#corrugated">Corrugated Roofing</a>
+      <a href="#concealed-fix">Concealed-Fix Profiles</a>
+      <a href="#colours">Product Colours</a>
+    </div>
+    <div>
+      <h3>Contact</h3>
+      <a href="#contact">Contact Us</a>
+      <a href="#quotation">Request a Quotation</a>
+      <a href="#" class="whatsapp-contact">WhatsApp Enquiries</a>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <p>© <span id="currentYear">2026</span> MABATI ROLLING MILLS.</p>
+    <p>Product names and manufacturer attribution are subject to verification.</p>
+  </div>
+</footer>
+
+<!-- ICON-ONLY FLOATING WHATSAPP -->
+<a href="#" class="floating-whatsapp" id="whatsappFloat" aria-label="Contact us on WhatsApp" title="Chat on WhatsApp">
+  <svg class="whatsapp-icon" viewBox="0 0 32 32" aria-hidden="true">
+    <path fill="currentColor" d="M16.02 3C8.86 3 3.04 8.81 3.04 15.97c0 2.29.6 4.52 1.75 6.49L3 29l6.72-1.76a12.96 12.96 0 0 0 6.29 1.6h.01C23.17 28.84 29 23.02 29 15.86 29 12.39 27.65 9.13 25.2 6.68A12.9 12.9 0 0 0 16.02 3Zm0 23.64h-.01a10.8 10.8 0 0 1-5.5-1.5l-.39-.23-3.99 1.05 1.07-3.89-.25-.4a10.75 10.75 0 0 1-1.65-5.7c0-5.92 4.82-10.74 10.75-10.74 2.87 0 5.57 1.12 7.6 3.15a10.67 10.67 0 0 1 3.14 7.6c0 5.93-4.82 10.66-10.77 10.66Zm5.9-8.03c-.32-.16-1.9-.94-2.2-1.05-.3-.1-.51-.16-.73.16-.21.32-.83 1.05-1.02 1.27-.19.21-.38.24-.7.08-.32-.16-1.35-.5-2.57-1.58-.95-.84-1.59-1.88-1.78-2.2-.18-.32-.02-.49.14-.65.14-.14.32-.38.48-.56.16-.19.21-.32.32-.54.1-.21.05-.4-.03-.56-.08-.16-.73-1.75-1-2.4-.26-.63-.53-.54-.73-.55h-.62c-.22 0-.57.08-.87.4-.3.32-1.14 1.1-1.14 2.69s1.17 3.12 1.33 3.34c.16.21 2.3 3.5 5.57 4.91.78.34 1.39.55 1.87.7.78.25 1.49.21 2.05.13.63-.1 1.9-.78 2.17-1.54.27-.75.27-1.4.19-1.54-.08-.13-.3-.21-.62-.37Z"/>
+  </svg>
+</a>
+
+<script src="app.js"></script>
+</body>
+</html>
