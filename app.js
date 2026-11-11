@@ -601,3 +601,165 @@ console.log("WhatsApp contact:", WHATSAPP_NUMBER);
 console.log("Hero slides found:", heroSlides.length);
 console.log("Product calculators created:", productCards.length);
 console.log("FAQ items found:", faqItems.length);
+
+/* =========================================
+   14. OUR PROJECTS PHOTO GALLERIES
+========================================= */
+
+const projectCategories = document.getElementById("projectCategories");
+
+const projectGalleryViews = document.querySelectorAll(".project-gallery-view");
+
+const projectCategoryButtons = document.querySelectorAll("[data-gallery-open]");
+
+const projectBackButtons = document.querySelectorAll("[data-gallery-back]");
+
+
+/* Open the selected project gallery. */
+
+function openProjectGallery(category) {
+  if (!projectCategories) return;
+
+  const selectedGallery = document.getElementById("gallery-" + category);
+
+  if (!selectedGallery) return;
+
+  projectCategories.hidden = true;
+
+  projectGalleryViews.forEach(function (gallery) {
+    gallery.hidden = true;
+  });
+
+  selectedGallery.hidden = false;
+
+  const track = selectedGallery.querySelector(".project-gallery-track");
+
+  if (track) {
+    track.scrollTo({
+      left: 0,
+      behavior: "instant"
+    });
+  }
+
+  updateProjectGalleryDots(selectedGallery);
+
+  selectedGallery.scrollIntoView({
+    behavior: "smooth",
+    block: "start"
+  });
+}
+
+
+/* Return to the three project categories. */
+
+function closeProjectGallery() {
+  projectGalleryViews.forEach(function (gallery) {
+    gallery.hidden = true;
+  });
+
+  if (projectCategories) {
+    projectCategories.hidden = false;
+
+    projectCategories.scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
+  }
+}
+
+
+/* Connect the category cards. */
+
+projectCategoryButtons.forEach(function (button) {
+  button.addEventListener("click", function () {
+    openProjectGallery(button.dataset.galleryOpen);
+  });
+});
+
+
+/* Connect the Back to Categories buttons. */
+
+projectBackButtons.forEach(function (button) {
+  button.addEventListener("click", closeProjectGallery);
+});
+
+
+/* Update the active navigation dot. */
+
+function updateProjectGalleryDots(gallery) {
+  const track = gallery.querySelector(".project-gallery-track");
+  const slides = gallery.querySelectorAll(".project-gallery-slide");
+  const dots = gallery.querySelectorAll(".project-gallery-dots button");
+
+  if (!track || !slides.length || !dots.length) return;
+
+  const slideWidth = slides[0].getBoundingClientRect().width +
+    parseFloat(getComputedStyle(track).columnGap || 0);
+
+  let activeIndex = Math.round(track.scrollLeft / slideWidth);
+
+  activeIndex = Math.max(0, Math.min(activeIndex, dots.length - 1));
+
+  dots.forEach(function (dot, index) {
+    dot.classList.toggle("active", index === activeIndex);
+  });
+}
+
+
+/* Connect arrows, swipe scrolling and navigation dots. */
+
+projectGalleryViews.forEach(function (gallery) {
+  const track = gallery.querySelector(".project-gallery-track");
+  const slides = gallery.querySelectorAll(".project-gallery-slide");
+  const previousButton = gallery.querySelector(".project-prev");
+  const nextButton = gallery.querySelector(".project-next");
+  const dots = gallery.querySelectorAll(".project-gallery-dots button");
+
+  if (!track || !slides.length) return;
+
+  function moveToSlide(index) {
+    const safeIndex = Math.max(0, Math.min(index, slides.length - 1));
+
+    track.scrollTo({
+      left: slides[safeIndex].offsetLeft - slides[0].offsetLeft,
+      behavior: "smooth"
+    });
+  }
+
+  if (previousButton) {
+    previousButton.addEventListener("click", function () {
+      const currentIndex = Array.from(slides).findIndex(function (slide) {
+        return Math.abs(slide.offsetLeft - track.scrollLeft) < 20;
+      });
+
+      const fallbackIndex = Math.round(
+        track.scrollLeft / slides[0].getBoundingClientRect().width
+      );
+
+      moveToSlide((currentIndex >= 0 ? currentIndex : fallbackIndex) - 1);
+    });
+  }
+
+  if (nextButton) {
+    nextButton.addEventListener("click", function () {
+      const slideWidth = slides[0].getBoundingClientRect().width +
+        parseFloat(getComputedStyle(track).columnGap || 0);
+
+      const currentIndex = Math.round(track.scrollLeft / slideWidth);
+
+      moveToSlide(currentIndex + 1);
+    });
+  }
+
+  dots.forEach(function (dot, index) {
+    dot.addEventListener("click", function () {
+      moveToSlide(index);
+    });
+  });
+
+  track.addEventListener("scroll", function () {
+    updateProjectGalleryDots(gallery);
+  }, { passive: true });
+});
+
+console.log("Project photo galleries initialised.");
