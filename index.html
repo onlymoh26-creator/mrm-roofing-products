@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -42,12 +43,55 @@
       display: block;
     }
 
-    /* KEEP WHATSAPP BELOW THE CALL BUTTON */
     .floating-whatsapp {
       z-index: 9998;
     }
 
+    /* HEADER LOGO AND ALIGNMENT */
+    .site-header .header-inner {
+      width: 100% !important;
+      max-width: none !important;
+      margin: 0 !important;
+      padding-left: 22px !important;
+      padding-right: 22px !important;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+    }
+
+    .site-header .brand {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      margin: 0 !important;
+      padding: 0 !important;
+      flex-shrink: 0;
+    }
+
+    .site-header .brand img {
+      display: block;
+      width: 185px !important;
+      height: 65px !important;
+      object-fit: contain;
+      object-position: left center;
+    }
+
+    .site-header .menu-toggle {
+      margin-left: auto;
+      flex-shrink: 0;
+    }
+
     @media (max-width: 600px) {
+      .site-header .header-inner {
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+      }
+
+      .site-header .brand img {
+        width: 155px !important;
+        height: 58px !important;
+      }
+
       .floating-call {
         right: 18px;
         bottom: 91px;
@@ -172,7 +216,6 @@
         </div>
       </div>
 
-      <!-- BOX PROFILE -->
       <div class="product-group" id="box-profile">
         <div class="group-heading">
           <h3>01. Box Profile Roofing Sheets</h3>
@@ -198,7 +241,6 @@
         </div>
       </div>
 
-      <!-- TILE PROFILE -->
       <div class="product-group" id="tile-profile">
         <div class="group-heading">
           <h3>02. Tile Profile Roofing Sheets</h3>
@@ -224,7 +266,6 @@
         </div>
       </div>
 
-      <!-- STONE COATED -->
       <div class="product-group" id="stone-coated">
         <div class="group-heading">
           <h3>03. Stone-Coated Roofing</h3>
@@ -246,7 +287,6 @@
         </div>
       </div>
 
-      <!-- CORRUGATED -->
       <div class="product-group" id="corrugated">
         <div class="group-heading">
           <h3>04. Corrugated Roofing Sheets</h3>
@@ -268,7 +308,6 @@
         </div>
       </div>
 
-      <!-- CONCEALED FIX SUBSECTION -->
       <div class="product-group concealed-fix-group" id="concealed-fix">
         <div class="group-heading">
           <h3>Concealed-Fix & Specialised Profiles</h3>
@@ -293,7 +332,6 @@
           </article>
         </div>
       </div>
-
     </div>
   </section>
 
@@ -310,57 +348,28 @@
 
       <div class="accessory-grid">
         <article class="accessory-card">
-          <div class="accessory-image">
-            <img src="images/ridge-caps.jpg" alt="Roofing ridge caps" loading="lazy">
-          </div>
-          <h3>Ridge Caps</h3>
-          <p>Standard, flat, curved and roll-top ridge options.</p>
-          <a href="#quotation" class="text-link">Enquire Now →</a>
+          <div class="accessory-image"><img src="images/ridge-caps.jpg" alt="Roofing ridge caps" loading="lazy"></div>
+          <h3>Ridge Caps</h3><p>Standard, flat, curved and roll-top ridge options.</p><a href="#quotation" class="text-link">Enquire Now →</a>
         </article>
-
         <article class="accessory-card">
-          <div class="accessory-image">
-            <img src="images/valley-trays.jpg" alt="Roofing valley trays" loading="lazy">
-          </div>
-          <h3>Valley Trays</h3>
-          <p>Roof valley components for water drainage.</p>
-          <a href="#quotation" class="text-link">Enquire Now →</a>
+          <div class="accessory-image"><img src="images/valley-trays.jpg" alt="Roofing valley trays" loading="lazy"></div>
+          <h3>Valley Trays</h3><p>Roof valley components for water drainage.</p><a href="#quotation" class="text-link">Enquire Now →</a>
         </article>
-
         <article class="accessory-card">
-          <div class="accessory-image">
-            <img src="images/roof-flashings.jpg" alt="Roof flashings" loading="lazy">
-          </div>
-          <h3>Roof Flashings</h3>
-          <p>Side-wall, apron and barge flashing options.</p>
-          <a href="#quotation" class="text-link">Enquire Now →</a>
+          <div class="accessory-image"><img src="images/roof-flashings.jpg" alt="Roof flashings" loading="lazy"></div>
+          <h3>Roof Flashings</h3><p>Side-wall, apron and barge flashing options.</p><a href="#quotation" class="text-link">Enquire Now →</a>
         </article>
-
         <article class="accessory-card">
-          <div class="accessory-image">
-            <img src="images/roofing-fasteners.jpg" alt="Roofing fasteners" loading="lazy">
-          </div>
-          <h3>Roofing Fasteners</h3>
-          <p>Roofing screws, nails, washers and fittings.</p>
-          <a href="#quotation" class="text-link">Enquire Now →</a>
+          <div class="accessory-image"><img src="images/roofing-fasteners.jpg" alt="Roofing fasteners" loading="lazy"></div>
+          <h3>Roofing Fasteners</h3><p>Roofing screws, nails, washers and fittings.</p><a href="#quotation" class="text-link">Enquire Now →</a>
         </article>
-
         <article class="accessory-card">
-          <div class="accessory-image">
-            <img src="images/gutters-downpipes.jpg" alt="Gutters and downpipes" loading="lazy">
-          </div>
-          <h3>Gutters & Downpipes</h3>
-          <p>Rainwater collection and drainage components.</p>
-          <a href="#quotation" class="text-link">Enquire Now →</a>
+          <div class="accessory-image"><img src="images/gutters-downpipes.jpg" alt="Gutters and downpipes" loading="lazy"></div>
+          <h3>Gutters & Downpipes</h3><p>Rainwater collection and drainage components.</p><a href="#quotation" class="text-link">Enquire Now →</a>
         </article>
-
         <article class="accessory-card">
-          <div class="accessory-image">
-            <img src="images/roof-ventilation.jpg" alt="Roof ventilation" loading="lazy">
-          </div>
-          <h3>Roof Ventilation</h3>
-          <p>Selected roof ventilation components.</p>
-          <a href="#quotation" class="text-link">Enquire Now →</a>
+          <div class="accessory-image"><img src="images/roof-ventilation.jpg" alt="Roof ventilation" loading="lazy"></div>
+          <h3>Roof Ventilation</h3><p>Selected roof ventilation components.</p><a href="#quotation" class="text-link">Enquire Now →</a>
         </article>
       </div>
     </div>
@@ -401,57 +410,28 @@
         </div>
       </div>
 
-      <!-- PROJECT CATEGORY CARDS -->
       <div class="project-categories" id="projectCategories">
-
         <button class="project-category-card" type="button" data-gallery-open="residential">
-          <div class="project-category-image">
-            <img src="images/residential-1.jpg" alt="Residential roofing project" loading="lazy">
-          </div>
-          <div class="project-category-info">
-            <h3>Residential Roofing</h3>
-            <p>Explore roofing projects for homes and residential buildings.</p>
-            <span>View Photos →</span>
-          </div>
+          <div class="project-category-image"><img src="images/residential-1.jpg" alt="Residential roofing project" loading="lazy"></div>
+          <div class="project-category-info"><h3>Residential Roofing</h3><p>Explore roofing projects for homes and residential buildings.</p><span>View Photos →</span></div>
         </button>
 
         <button class="project-category-card" type="button" data-gallery-open="modern">
-          <div class="project-category-image">
-            <img src="images/modern-1.jpg" alt="Modern roof design project" loading="lazy">
-          </div>
-          <div class="project-category-info">
-            <h3>Modern Roof Designs</h3>
-            <p>Discover contemporary roof styles and architectural designs.</p>
-            <span>View Photos →</span>
-          </div>
+          <div class="project-category-image"><img src="images/modern-1.jpg" alt="Modern roof design project" loading="lazy"></div>
+          <div class="project-category-info"><h3>Modern Roof Designs</h3><p>Discover contemporary roof styles and architectural designs.</p><span>View Photos →</span></div>
         </button>
 
         <button class="project-category-card" type="button" data-gallery-open="commercial">
-          <div class="project-category-image">
-            <img src="images/commercial-1.jpg" alt="Commercial roofing project" loading="lazy">
-          </div>
-          <div class="project-category-info">
-            <h3>Commercial Roofing</h3>
-            <p>View roofing applications for commercial and industrial buildings.</p>
-            <span>View Photos →</span>
-          </div>
+          <div class="project-category-image"><img src="images/commercial-1.jpg" alt="Commercial roofing project" loading="lazy"></div>
+          <div class="project-category-info"><h3>Commercial Roofing</h3><p>View roofing applications for commercial and industrial buildings.</p><span>View Photos →</span></div>
         </button>
-
       </div>
 
-      <!-- RESIDENTIAL ROOFING GALLERY -->
       <div class="project-gallery-view" id="gallery-residential" hidden>
         <div class="project-gallery-heading">
-          <div>
-            <span class="section-label">OUR PROJECTS</span>
-            <h3>Residential Roofing</h3>
-            <p>Residential roofing project photographs.</p>
-          </div>
-          <button class="gallery-back-button" type="button" data-gallery-back>
-            ← Back to Categories
-          </button>
+          <div><span class="section-label">OUR PROJECTS</span><h3>Residential Roofing</h3><p>Residential roofing project photographs.</p></div>
+          <button class="gallery-back-button" type="button" data-gallery-back>← Back to Categories</button>
         </div>
-
         <div class="project-slider">
           <button class="project-arrow project-prev" type="button" aria-label="Previous residential photo">‹</button>
           <div class="project-gallery-track" id="track-residential">
@@ -461,7 +441,6 @@
           </div>
           <button class="project-arrow project-next" type="button" aria-label="Next residential photo">›</button>
         </div>
-
         <div class="project-gallery-dots" aria-label="Residential photo navigation">
           <button class="active" type="button" aria-label="Show residential photo 1"></button>
           <button type="button" aria-label="Show residential photo 2"></button>
@@ -469,19 +448,11 @@
         </div>
       </div>
 
-      <!-- MODERN ROOF DESIGNS GALLERY -->
       <div class="project-gallery-view" id="gallery-modern" hidden>
         <div class="project-gallery-heading">
-          <div>
-            <span class="section-label">OUR PROJECTS</span>
-            <h3>Modern Roof Designs</h3>
-            <p>Contemporary roofing styles and architectural designs.</p>
-          </div>
-          <button class="gallery-back-button" type="button" data-gallery-back>
-            ← Back to Categories
-          </button>
+          <div><span class="section-label">OUR PROJECTS</span><h3>Modern Roof Designs</h3><p>Contemporary roofing styles and architectural designs.</p></div>
+          <button class="gallery-back-button" type="button" data-gallery-back>← Back to Categories</button>
         </div>
-
         <div class="project-slider">
           <button class="project-arrow project-prev" type="button" aria-label="Previous modern roof photo">‹</button>
           <div class="project-gallery-track" id="track-modern">
@@ -491,7 +462,6 @@
           </div>
           <button class="project-arrow project-next" type="button" aria-label="Next modern roof photo">›</button>
         </div>
-
         <div class="project-gallery-dots" aria-label="Modern roof photo navigation">
           <button class="active" type="button" aria-label="Show modern roof photo 1"></button>
           <button type="button" aria-label="Show modern roof photo 2"></button>
@@ -499,19 +469,11 @@
         </div>
       </div>
 
-      <!-- COMMERCIAL ROOFING GALLERY -->
       <div class="project-gallery-view" id="gallery-commercial" hidden>
         <div class="project-gallery-heading">
-          <div>
-            <span class="section-label">OUR PROJECTS</span>
-            <h3>Commercial Roofing</h3>
-            <p>Commercial and industrial roofing project photographs.</p>
-          </div>
-          <button class="gallery-back-button" type="button" data-gallery-back>
-            ← Back to Categories
-          </button>
+          <div><span class="section-label">OUR PROJECTS</span><h3>Commercial Roofing</h3><p>Commercial and industrial roofing project photographs.</p></div>
+          <button class="gallery-back-button" type="button" data-gallery-back>← Back to Categories</button>
         </div>
-
         <div class="project-slider">
           <button class="project-arrow project-prev" type="button" aria-label="Previous commercial photo">‹</button>
           <div class="project-gallery-track" id="track-commercial">
@@ -521,14 +483,12 @@
           </div>
           <button class="project-arrow project-next" type="button" aria-label="Next commercial photo">›</button>
         </div>
-
         <div class="project-gallery-dots" aria-label="Commercial photo navigation">
           <button class="active" type="button" aria-label="Show commercial photo 1"></button>
           <button type="button" aria-label="Show commercial photo 2"></button>
           <button type="button" aria-label="Show commercial photo 3"></button>
         </div>
       </div>
-
     </div>
   </section>
 
@@ -544,21 +504,16 @@
 
       <form class="quotation-form" id="quotationForm">
         <h3>Project Details</h3>
-
         <label for="quoteName">Your Name</label>
         <input type="text" id="quoteName" name="name" placeholder="Enter your name" required>
-
         <label for="quotePhone">Phone Number</label>
         <input type="tel" id="quotePhone" name="phone" placeholder="Enter your phone number">
-
         <label for="quoteLocation">Project Location</label>
         <input type="text" id="quoteLocation" name="location" placeholder="Town or county" required>
-
         <label for="quoteProduct">Select Product</label>
         <select id="quoteProduct" name="product" required>
           <option value="">Choose a roofing product</option>
         </select>
-
         <label for="quoteGauge">Gauge / Specification</label>
         <select id="quoteGauge" name="gauge">
           <option value="">Select if applicable</option>
@@ -568,13 +523,10 @@
           <option value="32G">32G</option>
           <option value="To be advised">Not sure / To be advised</option>
         </select>
-
         <label for="quoteQuantity">Estimated Quantity</label>
         <input type="number" id="quoteQuantity" name="quantity" min="1" placeholder="Enter metres or pieces">
-
         <label for="quoteNotes">Additional Requirements</label>
         <textarea id="quoteNotes" name="notes" rows="4" placeholder="Tell us about your roofing requirements, preferred colour, accessories or delivery needs"></textarea>
-
         <button type="submit" class="btn btn-primary quotation-submit">Send Quotation Request on WhatsApp</button>
       </form>
     </div>
@@ -653,14 +605,11 @@
         <h2>Ready to discuss your roofing project?</h2>
         <p>Contact our manager for product information, pricing, specifications and quotation assistance.</p>
       </div>
-
       <div class="contact-actions">
         <div class="manager-contact">
           <h3>Manager James Khawai</h3>
           <p>Call us directly:</p>
-          <a href="tel:+254756393875" class="btn btn-primary">
-            0756393875
-          </a>
+          <a href="tel:+254756393875" class="btn btn-primary">0756393875</a>
         </div>
       </div>
     </div>
@@ -748,4 +697,4 @@
 
 <script src="app.js"></script>
 </body>
-                                                                                                                                              </html>
+</html>
