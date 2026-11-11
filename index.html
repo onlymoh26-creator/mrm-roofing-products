@@ -353,16 +353,144 @@
         <div>
           <span class="section-label">ROOFING INSPIRATION</span>
           <h2>Our Projects</h2>
-          <p>Explore roofing designs and applications for different buildings.</p>
+          <p>Explore residential roofing, modern roof designs and commercial roofing projects.</p>
         </div>
       </div>
-      <div class="gallery-grid">
-        <div class="gallery-placeholder"><span>Residential Roofing</span></div>
-        <div class="gallery-placeholder"><span>Modern Roof Designs</span></div>
-        <div class="gallery-placeholder"><span>Commercial Roofing</span></div>
+
+      <!-- PROJECT CATEGORY CARDS -->
+      <div class="project-categories" id="projectCategories">
+
+        <button class="project-category-card" type="button" data-gallery-open="residential">
+          <div class="project-category-image">
+            <img src="images/residential-1.jpg" alt="Residential roofing project" loading="lazy">
+            <span class="project-photo-count">3 PHOTOS</span>
+          </div>
+          <div class="project-category-info">
+            <h3>Residential Roofing</h3>
+            <p>Explore roofing projects for homes and residential buildings.</p>
+            <span>View Photos →</span>
+          </div>
+        </button>
+
+        <button class="project-category-card" type="button" data-gallery-open="modern">
+          <div class="project-category-image">
+            <img src="images/modern-1.jpg" alt="Modern roof design project" loading="lazy">
+            <span class="project-photo-count">3 PHOTOS</span>
+          </div>
+          <div class="project-category-info">
+            <h3>Modern Roof Designs</h3>
+            <p>Discover contemporary roof styles and architectural designs.</p>
+            <span>View Photos →</span>
+          </div>
+        </button>
+
+        <button class="project-category-card" type="button" data-gallery-open="commercial">
+          <div class="project-category-image">
+            <img src="images/commercial-1.jpg" alt="Commercial roofing project" loading="lazy">
+            <span class="project-photo-count">3 PHOTOS</span>
+          </div>
+          <div class="project-category-info">
+            <h3>Commercial Roofing</h3>
+            <p>View roofing applications for commercial and industrial buildings.</p>
+            <span>View Photos →</span>
+          </div>
+        </button>
+
       </div>
+
+      <!-- RESIDENTIAL ROOFING GALLERY -->
+      <div class="project-gallery-view" id="gallery-residential" hidden>
+        <div class="project-gallery-heading">
+          <div>
+            <span class="section-label">OUR PROJECTS</span>
+            <h3>Residential Roofing</h3>
+            <p>Residential roofing project photographs.</p>
+          </div>
+          <button class="gallery-back-button" type="button" data-gallery-back>
+            ← Back to Categories
+          </button>
+        </div>
+
+        <div class="project-slider">
+          <button class="project-arrow project-prev" type="button" aria-label="Previous residential photo">‹</button>
+          <div class="project-gallery-track" id="track-residential">
+            <div class="project-gallery-slide"><img src="images/residential-1.jpg" alt="Residential roofing photo 1"></div>
+            <div class="project-gallery-slide"><img src="images/residential-2.jpg" alt="Residential roofing photo 2" loading="lazy"></div>
+            <div class="project-gallery-slide"><img src="images/residential-3.jpg" alt="Residential roofing photo 3" loading="lazy"></div>
+          </div>
+          <button class="project-arrow project-next" type="button" aria-label="Next residential photo">›</button>
+        </div>
+
+        <div class="project-gallery-dots" aria-label="Residential photo navigation">
+          <button class="active" type="button" aria-label="Show residential photo 1"></button>
+          <button type="button" aria-label="Show residential photo 2"></button>
+          <button type="button" aria-label="Show residential photo 3"></button>
+        </div>
+      </div>
+
+      <!-- MODERN ROOF DESIGNS GALLERY -->
+      <div class="project-gallery-view" id="gallery-modern" hidden>
+        <div class="project-gallery-heading">
+          <div>
+            <span class="section-label">OUR PROJECTS</span>
+            <h3>Modern Roof Designs</h3>
+            <p>Contemporary roofing styles and architectural designs.</p>
+          </div>
+          <button class="gallery-back-button" type="button" data-gallery-back>
+            ← Back to Categories
+          </button>
+        </div>
+
+        <div class="project-slider">
+          <button class="project-arrow project-prev" type="button" aria-label="Previous modern roof photo">‹</button>
+          <div class="project-gallery-track" id="track-modern">
+            <div class="project-gallery-slide"><img src="images/modern-1.jpg" alt="Modern roof design photo 1"></div>
+            <div class="project-gallery-slide"><img src="images/modern-2.jpg" alt="Modern roof design photo 2" loading="lazy"></div>
+            <div class="project-gallery-slide"><img src="images/modern-3.jpg" alt="Modern roof design photo 3" loading="lazy"></div>
+          </div>
+          <button class="project-arrow project-next" type="button" aria-label="Next modern roof photo">›</button>
+        </div>
+
+        <div class="project-gallery-dots" aria-label="Modern roof photo navigation">
+          <button class="active" type="button" aria-label="Show modern roof photo 1"></button>
+          <button type="button" aria-label="Show modern roof photo 2"></button>
+          <button type="button" aria-label="Show modern roof photo 3"></button>
+        </div>
+      </div>
+
+      <!-- COMMERCIAL ROOFING GALLERY -->
+      <div class="project-gallery-view" id="gallery-commercial" hidden>
+        <div class="project-gallery-heading">
+          <div>
+            <span class="section-label">OUR PROJECTS</span>
+            <h3>Commercial Roofing</h3>
+            <p>Commercial and industrial roofing project photographs.</p>
+          </div>
+          <button class="gallery-back-button" type="button" data-gallery-back>
+            ← Back to Categories
+          </button>
+        </div>
+
+        <div class="project-slider">
+          <button class="project-arrow project-prev" type="button" aria-label="Previous commercial photo">‹</button>
+          <div class="project-gallery-track" id="track-commercial">
+            <div class="project-gallery-slide"><img src="images/commercial-1.jpg" alt="Commercial roofing photo 1"></div>
+            <div class="project-gallery-slide"><img src="images/commercial-2.jpg" alt="Commercial roofing photo 2" loading="lazy"></div>
+            <div class="project-gallery-slide"><img src="images/commercial-3.jpg" alt="Commercial roofing photo 3" loading="lazy"></div>
+          </div>
+          <button class="project-arrow project-next" type="button" aria-label="Next commercial photo">›</button>
+        </div>
+
+        <div class="project-gallery-dots" aria-label="Commercial photo navigation">
+          <button class="active" type="button" aria-label="Show commercial photo 1"></button>
+          <button type="button" aria-label="Show commercial photo 2"></button>
+          <button type="button" aria-label="Show commercial photo 3"></button>
+        </div>
+      </div>
+
     </div>
   </section>
+>
 
   <!-- QUOTATION FORM -->
   <section class="quotation-section section-padding" id="quotation">
