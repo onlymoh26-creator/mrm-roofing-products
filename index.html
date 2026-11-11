@@ -29,12 +29,11 @@
       border-radius: 50%;
       box-shadow: 0 5px 18px rgba(0, 0, 0, 0.25);
       text-decoration: none;
-      transition: transform 0.25s ease, background 0.25s ease;
+      transition: background 0.25s ease;
     }
 
     .floating-call:hover {
       background: #05649e;
-      transform: scale(1.08);
     }
 
     .floating-call svg {
@@ -45,6 +44,23 @@
 
     .floating-whatsapp {
       z-index: 9998;
+    }
+
+    /* SLOW, CONTINUOUS, SYNCHRONISED BOUNCE */
+    .floating-call,
+    .floating-whatsapp {
+      animation: floatingBounce 2.4s ease-in-out infinite;
+      will-change: transform;
+    }
+
+    @keyframes floatingBounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-12px);
+      }
     }
 
     /* HEADER LOGO AND ALIGNMENT */
