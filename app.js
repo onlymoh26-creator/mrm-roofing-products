@@ -161,7 +161,7 @@ if (heroSlides.length > 0) {
 ========================================= */
 
 /*
-  General category rates discussed previously.
+  General category rates.
   These rates are in KSh per metre.
 
   Product-specific rates override the general
@@ -189,7 +189,7 @@ const categoryPrices = {
 
 
 /*
-  Product-specific rates discussed previously.
+  Product-specific rates.
   These override the category rate where applicable.
 */
 
@@ -221,19 +221,39 @@ const productSpecificPrices = {
 
 
 /*
-  Stone-coated products are calculated per piece,
-  not per metre.
+  Stone-coated products are calculated per piece.
+
+  Confirmed prices:
+  Lifestile Waves: KSh 680 per piece.
+  Three Stone Coated Roofing: KSh 720 per piece.
+  Underscore Stone Coated Roofing: KSh 760 per piece.
+  Lifestile Roman: KSh 779 per piece.
 
   Lifestile Shingles: KSh 770 per piece.
-
-  Lifestile Classic: KSh 650 per piece was also
-  discussed, but there is no Classic product card
-  in the current HTML catalogue.
+  Lifestile Classic: KSh 650 per piece.
 */
 
 const stoneCoatedPrices = {
+  "Lifestile Waves": 680,
+  "Three Stone Coated Roofing": 720,
+  "Underscore Stone Coated Roofing": 760,
+  "Lifestile Roman": 779,
   "Lifestile Shingles": 770,
   "Lifestile Classic": 650
+};
+
+
+/*
+  Concealed-fix and specialised profiles.
+  These products have fixed prices per metre.
+  Their prices do not depend on gauge.
+*/
+
+const concealedFixPrices = {
+  "Saflok": 1440,
+  "Safdeck": 1280,
+  "Trimflute": 1040,
+  "Tekdek": 1440
 };
 
 
@@ -258,11 +278,25 @@ function formatCurrency(amount) {
 }
 
 function getProductRate(product, category, gauge, unit) {
+
+  /* Stone-coated products: fixed price per piece. */
+
   if (unit === "piece") {
     return Object.prototype.hasOwnProperty.call(stoneCoatedPrices, product)
       ? stoneCoatedPrices[product]
       : null;
   }
+
+  /* Concealed-fix products: fixed price per metre. */
+
+  if (
+    category === "concealed-fix" &&
+    Object.prototype.hasOwnProperty.call(concealedFixPrices, product)
+  ) {
+    return concealedFixPrices[product];
+  }
+
+  /* Product-specific gauge prices. */
 
   if (
     productSpecificPrices[product] &&
@@ -273,6 +307,8 @@ function getProductRate(product, category, gauge, unit) {
   ) {
     return productSpecificPrices[product][gauge];
   }
+
+  /* General category gauge prices. */
 
   if (
     categoryPrices[category] &&
@@ -303,7 +339,12 @@ function createProductCalculator(card) {
 
   let gaugeSelect = null;
 
-  if (unit !== "piece") {
+  /*
+    Concealed-fix products have fixed metre rates.
+    They do not need a gauge selection in the calculator.
+  */
+
+  if (unit !== "piece" && category !== "concealed-fix") {
     const gaugeLabel = document.createElement("label");
     gaugeLabel.textContent = "Select Gauge";
     calculator.appendChild(gaugeLabel);
@@ -398,9 +439,14 @@ function createProductCalculator(card) {
 
   const note = document.createElement("p");
   note.className = "product-calc-note";
-  note.textContent = unit === "piece"
-    ? "Material estimate based on the number of pieces. Confirm product specifications before ordering."
-    : "Material estimate based on the selected gauge and linear metres. This is not a roof-area calculator.";
+
+  if (unit === "piece") {
+    note.textContent = "Material estimate based on the number of pieces. Confirm product specifications before ordering.";
+  } else if (category === "concealed-fix") {
+    note.textContent = "Material estimate based on the fixed price per linear metre. Confirm product specifications before ordering.";
+  } else {
+    note.textContent = "Material estimate based on the selected gauge and linear metres. This is not a roof-area calculator.";
+  }
 
   calculator.appendChild(note);
 
@@ -601,6 +647,7 @@ console.log("WhatsApp contact:", WHATSAPP_NUMBER);
 console.log("Hero slides found:", heroSlides.length);
 console.log("Product calculators created:", productCards.length);
 console.log("FAQ items found:", faqItems.length);
+
 
 /* =========================================
    14. OUR PROJECTS PHOTO GALLERIES
