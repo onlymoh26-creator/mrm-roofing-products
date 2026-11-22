@@ -9,7 +9,7 @@
    1. WHATSAPP CONTACT DETAILS
 ========================================= */
 
-const WHATSAPP_NUMBER = "254756393875";
+const WHATSAPP_NUMBER = "254756669960";
 
 const WHATSAPP_MESSAGE = `Hello MRM Team,
 
@@ -287,7 +287,7 @@ function getProductRate(product, category, gauge, unit) {
       : null;
   }
 
-  /* Concealed-fix products: fixed price per metre. */
+  /* Concealed-fix products: fixed metre rates. */
 
   if (
     category === "concealed-fix" &&
