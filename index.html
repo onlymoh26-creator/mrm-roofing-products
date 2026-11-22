@@ -1,6 +1,4 @@
 
-<!DOCTYPE html>
-<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,252 +7,42 @@
   <!-- GOOGLE SEARCH CONSOLE VERIFICATION -->
   <meta name="google-site-verification" content="cqjClzwE7aM5r2WN2L1RuDmqWS9xbURd69nAxDuUsuk">
 
-  <!-- SEO INFORMATION -->
-  <meta name="description" content="Your independent roofing products supplier in Kenya, specialising in genuine Mabati Rolling Mills (MRM) roofing sheets, box profiles, tile profiles, stone-coated roofing and accessories. Request a quotation today.">
+  <!-- SEO TITLE -->
+  <title>MRM Mabati & Roofing Products in Kenya | Rolling Mills Web Store</title>
 
-  <meta name="keywords" content="genuine MRM mabati, MRM roofing products Kenya, MRM box profile, MRM tile profile, MRM stone coated roofing, roofing sheets Kenya, Mabati Rolling Mills products">
+  <!-- SEO DESCRIPTION -->
+  <meta name="description" content="Looking for genuine MRM mabati in Kenya? Explore MRM roofing sheets, box profile, tile profile, stone-coated roofing, corrugated sheets and building accessories. Request a quotation from Rolling Mills Web Store.">
 
+  <!-- SEARCH ENGINE INSTRUCTIONS -->
+  <meta name="robots" content="index, follow, max-image-preview:large">
+
+  <!-- CANONICAL URL -->
   <link rel="canonical" href="https://rollingmills.store/">
 
-  <title>MRM Products: Kenya's Mabati and Building Solutions | Rolling Mills Web Store</title>
+  <!-- SOCIAL MEDIA SHARING -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="MRM Mabati & Roofing Products in Kenya | Rolling Mills Web Store">
+  <meta property="og:description" content="Explore genuine MRM roofing products, mabati profiles, stone-coated roofing and accessories. Request a roofing quotation.">
+  <meta property="og:url" content="https://rollingmills.store/">
+  <meta property="og:image" content="https://rollingmills.store/images/mrm-logo.png">
+  <meta property="og:site_name" content="Rolling Mills Web Store">
 
+  <!-- TWITTER SHARING -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="MRM Mabati & Roofing Products in Kenya">
+  <meta name="twitter:description" content="Explore genuine MRM roofing sheets, profiles and accessories in Kenya.">
+  <meta name="twitter:image" content="https://rollingmills.store/images/mrm-logo.png">
+
+  <!-- STYLESHEET -->
   <link rel="stylesheet" href="styles.css">
 
+  <!-- GOOGLE FONTS -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
 
-  <style>
-    /* FLOATING CALL BUTTON */
-    .floating-call {
-      position: fixed;
-      right: 24px;
-      bottom: 98px;
-      z-index: 9998;
-      width: 58px;
-      height: 58px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #0878bd;
-      color: #ffffff;
-      border-radius: 50%;
-      box-shadow: 0 5px 18px rgba(0, 0, 0, 0.25);
-      text-decoration: none;
-      transition: background 0.25s ease;
-    }
-
-    .floating-call:hover {
-      background: #05649e;
-    }
-
-    .floating-call svg {
-      width: 27px;
-      height: 27px;
-      display: block;
-    }
-
-    .floating-whatsapp {
-      z-index: 9998;
-    }
-
-    /* SLOW, CONTINUOUS, SYNCHRONISED BOUNCE */
-    .floating-call,
-    .floating-whatsapp {
-      animation: floatingBounce 2.4s ease-in-out infinite;
-      will-change: transform;
-    }
-
-    @keyframes floatingBounce {
-      0%, 100% {
-        transform: translateY(0);
-      }
-
-      50% {
-        transform: translateY(-12px);
-      }
-    }
-
-    /* HEADER LOGO AND ALIGNMENT */
-    .site-header .header-inner {
-      width: 100% !important;
-      max-width: none !important;
-      margin: 0 !important;
-      padding-left: 22px !important;
-      padding-right: 22px !important;
-      box-sizing: border-box;
-      display: flex;
-      align-items: center;
-    }
-
-    .site-header .brand {
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      margin: 0 !important;
-      padding: 0 !important;
-      flex-shrink: 0;
-    }
-
-    .site-header .brand img {
-      display: block;
-      width: 185px !important;
-      height: 65px !important;
-      object-fit: contain;
-      object-position: left center;
-    }
-
-    .site-header .menu-toggle {
-      margin-left: auto;
-      flex-shrink: 0;
-    }
-
-    @media (max-width: 600px) {
-      .site-header .header-inner {
-        padding-left: 15px !important;
-        padding-right: 15px !important;
-      }
-
-      .site-header .brand img {
-        width: 155px !important;
-        height: 58px !important;
-      }
-
-      .floating-call {
-        right: 18px;
-        bottom: 91px;
-        width: 54px;
-        height: 54px;
-      }
-    }
-
-    /* CUSTOMER REVIEWS */
-    .reviews-section {
-      background: #f3f6f9;
-    }
-
-    .reviews-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 22px;
-      margin-top: 35px;
-    }
-
-    .review-card {
-      background: #ffffff;
-      border: 1px solid #e2e8ee;
-      border-radius: 14px;
-      padding: 27px 22px;
-      text-align: center;
-      box-shadow: 0 8px 25px rgba(9, 43, 73, 0.07);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
-    }
-
-    .review-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 13px 30px rgba(9, 43, 73, 0.12);
-    }
-
-    .review-avatar {
-      width: 76px;
-      height: 76px;
-      min-width: 76px;
-      border-radius: 50%;
-      overflow: hidden;
-      background: #dce8f1;
-      color: #092b49;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      margin-bottom: 15px;
-      border: 3px solid #eaf1f6;
-      font-size: 22px;
-      font-weight: 800;
-    }
-
-    .review-avatar img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 50%;
-    }
-
-    .review-card h3 {
-      color: #092b49;
-      font-size: 17px;
-      margin: 0 0 9px;
-      font-weight: 800;
-    }
-
-    .review-stars {
-      color: #f2ad24;
-      font-size: 20px;
-      letter-spacing: 3px;
-      margin-bottom: 15px;
-      line-height: 1;
-    }
-
-    .review-text {
-      color: #526273;
-      font-size: 14px;
-      line-height: 1.8;
-      margin: 0 0 20px;
-      flex-grow: 1;
-    }
-
-    .review-location {
-      width: 100%;
-      border-top: 1px solid #e8edf1;
-      padding-top: 14px;
-      color: #0878bd;
-      font-size: 13px;
-      font-weight: 700;
-    }
-
-    .review-location span {
-      color: #687887;
-      font-weight: 500;
-    }
-
-    @media (max-width: 900px) {
-      .reviews-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-
-    @media (max-width: 520px) {
-      .reviews-grid {
-        grid-template-columns: 1fr;
-        gap: 17px;
-      }
-
-      .review-card {
-        padding: 25px 20px;
-      }
-    }
-
-    /* MANAGER CONTACT BUTTONS */
-    .manager-contact .whatsapp-contact {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      margin-top: 10px;
-      background: #168b50;
-      color: #ffffff;
-      text-decoration: none;
-    }
-
-    .manager-contact .whatsapp-contact:hover {
-      background: #116e3f;
-    }
-  </style>
+  <!-- KEEP YOUR EXISTING STYLE SECTION BELOW -->
 </head>
 
 <body>
