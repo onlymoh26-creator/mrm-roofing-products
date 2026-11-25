@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-KE">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,16 +9,16 @@
   <!-- GOOGLE SEARCH CONSOLE VERIFICATION -->
   <meta name="google-site-verification" content="cqjClzwE7aM5r2WN2L1RuDmqWS9xbURd69nAxDuUsuk">
 
-
   <!-- PRIMARY SEO -->
   <title>MRM Mabati Prices & Roofing Products in Kenya | Rolling Mills</title>
 
-  <meta name="description" content="Explore Mabati Rolling Mills roofing products in Kenya. Browse Box Profile, Tile Profile, Stone-Coated and Corrugated mabati, roofing accessories and request a quotation.">
+  <meta name="description" content="Looking for MRM mabati in Kenya? Explore Box Profile, Tile Profile, Stone-Coated and Corrugated roofing sheets, roofing accessories and colours. Contact Rolling Mills Web Store for current prices and quotations.">
 
   <meta name="author" content="Rolling Mills Web Store">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-
   <meta name="googlebot" content="index, follow">
+  <meta name="language" content="English">
+  <meta name="geo.region" content="KE">
 
   <!-- CANONICAL URL -->
   <link rel="canonical" href="https://rollingmills.store/">
@@ -27,17 +27,19 @@
   <meta property="og:type" content="website">
   <meta property="og:locale" content="en_KE">
   <meta property="og:site_name" content="Rolling Mills Web Store">
-  <meta property="og:title" content="MRM Mabati & Roofing Products in Kenya | Rolling Mills">
-  <meta property="og:description" content="Discover MRM roofing products in Kenya. Explore Box Profile, Tile Profile, Stone-Coated and Corrugated roofing sheets and accessories. Request a quotation.">
+  <meta property="og:title" content="MRM Mabati Prices & Roofing Products in Kenya">
+  <meta property="og:description" content="Explore Mabati Rolling Mills roofing products in Kenya. Browse Box Profile, Tile Profile, Stone-Coated and Corrugated roofing sheets, colours and accessories. Request a quotation.">
   <meta property="og:url" content="https://rollingmills.store/">
   <meta property="og:image" content="https://rollingmills.store/images/hero-1.jpg">
-  <meta property="og:image:alt" content="Roofing products and roofing solutions supplied by Rolling Mills Web Store">
+  <meta property="og:image:alt" content="Roofing products and modern roofing designs supplied by Rolling Mills Web Store">
+  <meta property="og:image:type" content="image/jpeg">
 
   <!-- TWITTER / X -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="MRM Mabati & Roofing Products in Kenya">
-  <meta name="twitter:description" content="Explore Mabati Rolling Mills roofing products, profiles, colours and accessories in Kenya. Request a quotation from Rolling Mills Web Store.">
+  <meta name="twitter:title" content="MRM Mabati Prices & Roofing Products in Kenya">
+  <meta name="twitter:description" content="Explore MRM roofing sheets, Box Profile, Tile Profile, Stone-Coated and Corrugated mabati in Kenya. Contact Rolling Mills Web Store for quotations.">
   <meta name="twitter:image" content="https://rollingmills.store/images/hero-1.jpg">
+  <meta name="twitter:image:alt" content="Roofing products supplied by Rolling Mills Web Store">
 
   <!-- STRUCTURED DATA: BUSINESS IDENTITY -->
   <script type="application/ld+json">
@@ -48,11 +50,18 @@
     "name": "Rolling Mills Web Store",
     "url": "https://rollingmills.store/",
     "logo": "https://rollingmills.store/images/mrm-logo.png",
-    "description": "Independent supplier specialising in Mabati Rolling Mills roofing products, roofing sheets, profiles and accessories in Kenya.",
+    "description": "Independent roofing products supplier specialising in genuine Mabati Rolling Mills roofing products, roofing sheets, profiles and accessories in Kenya.",
     "telephone": "+254756669960",
     "areaServed": {
       "@type": "Country",
       "name": "Kenya"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+254756669960",
+      "contactType": "sales",
+      "areaServed": "KE",
+      "availableLanguage": "English"
     }
   }
   </script>
@@ -65,6 +74,7 @@
     "@id": "https://rollingmills.store/#website",
     "url": "https://rollingmills.store/",
     "name": "Rolling Mills Web Store",
+    "description": "MRM roofing products, mabati sheets, roofing profiles and accessories in Kenya.",
     "publisher": {
       "@id": "https://rollingmills.store/#organization"
     },
@@ -73,7 +83,10 @@
   </script>
 
   <!-- FAVICON -->
-  <link rel="icon" href="images/mrm-logo.png">
+  <link rel="icon" href="images/mrm-logo.png" type="image/png">
+
+  <!-- PERFORMANCE: PRELOAD HERO IMAGE -->
+  <link rel="preload" as="image" href="images/hero-1.jpg" fetchpriority="high">
 
   <!-- STYLESHEETS AND FONTS -->
   <link rel="stylesheet" href="styles.css">
@@ -129,6 +142,13 @@
 
       50% {
         transform: translateY(-12px);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .floating-call,
+      .floating-whatsapp {
+        animation: none;
       }
     }
 
@@ -320,7 +340,7 @@
   <div class="container header-inner">
 
     <a href="#hero" class="brand" aria-label="Rolling Mills Web Store home">
-      <img src="images/mrm-logo.png" alt="MRM roofing products supplied by Rolling Mills Web Store">
+      <img src="images/mrm-logo.png" alt="Rolling Mills Web Store logo - MRM roofing products supplier" width="185" height="65">
       <span class="brand-fallback">ROLLING MILLS WEB STORE</span>
     </a>
 
@@ -354,27 +374,27 @@
 
     <div class="hero-slideshow">
       <div class="hero-slide active">
-        <img src="images/hero-1.jpg" alt="Modern residential house with quality roofing sheets">
+        <img src="images/hero-1.jpg" alt="Modern residential house with quality roofing sheets in Kenya" fetchpriority="high" decoding="async">
       </div>
 
       <div class="hero-slide">
-        <img src="images/hero-2.jpg" alt="Contemporary residential roofing design in Kenya">
+        <img src="images/hero-2.jpg" alt="Contemporary residential roofing design in Kenya" loading="lazy" decoding="async">
       </div>
 
       <div class="hero-slide">
-        <img src="images/hero-3.jpg" alt="Commercial building with durable roofing">
+        <img src="images/hero-3.jpg" alt="Commercial building with durable roofing sheets" loading="lazy" decoding="async">
       </div>
 
       <div class="hero-slide">
-        <img src="images/hero-4.jpg" alt="Residential property with an elegant roof">
+        <img src="images/hero-4.jpg" alt="Residential property with an elegant roof design" loading="lazy" decoding="async">
       </div>
 
       <div class="hero-slide">
-        <img src="images/hero-5.jpg" alt="Commercial roofing project">
+        <img src="images/hero-5.jpg" alt="Commercial roofing project" loading="lazy" decoding="async">
       </div>
 
       <div class="hero-slide">
-        <img src="images/hero-6.jpg" alt="Modern architectural roofing design">
+        <img src="images/hero-6.jpg" alt="Modern architectural roofing design" loading="lazy" decoding="async">
       </div>
     </div>
 
@@ -383,7 +403,7 @@
     <div class="container hero-content">
       <span class="eyebrow">GENUINE MRM ROOFING PRODUCTS</span>
 
-      <h1>Build Strong.<br><span>Roof Beautifully.</span></h1>
+      <h1>MRM Mabati & Roofing Products in Kenya<br><span>Build Strong. Roof Beautifully.</span></h1>
 
       <p>
         Explore genuine Mabati Rolling Mills (MRM) roofing products
@@ -538,7 +558,7 @@
 
           <article class="product-card" data-product="MaxCover" data-category="box-profile">
             <div class="product-image">
-              <img src="images/maxcover.jpg" alt="MRM MaxCover box profile roofing sheet" loading="lazy">
+              <img src="images/maxcover.jpg" alt="MRM MaxCover box profile roofing sheet" loading="lazy" decoding="async">
             </div>
             <div class="product-info">
               <span class="product-brand">MRM PRODUCT</span>
@@ -550,7 +570,7 @@
 
           <article class="product-card" data-product="Covermax" data-category="box-profile">
             <div class="product-image">
-              <img src="images/covermax.jpg" alt="MRM Covermax roofing sheet" loading="lazy">
+              <img src="images/covermax.jpg" alt="MRM Covermax roofing sheet" loading="lazy" decoding="async">
             </div>
             <div class="product-info">
               <span class="product-brand">MRM PRODUCT</span>
@@ -562,7 +582,7 @@
 
           <article class="product-card" data-product="Dumu Rangi Box Profile" data-category="box-profile">
             <div class="product-image">
-              <img src="images/dumu-rangi-box.jpg" alt="MRM Dumu Rangi colour-coated box profile roofing" loading="lazy">
+              <img src="images/dumu-rangi-box.jpg" alt="MRM Dumu Rangi colour-coated box profile roofing" loading="lazy" decoding="async">
             </div>
             <div class="product-info">
               <span class="product-brand">MRM PRODUCT</span>
@@ -574,7 +594,7 @@
 
           <article class="product-card" data-product="IT5 Profile" data-category="box-profile">
             <div class="product-image">
-              <img src="images/it5.jpg" alt="IT5 roofing profile" loading="lazy">
+              <img src="images/it5.jpg" alt="IT5 roofing profile" loading="lazy" decoding="async">
             </div>
             <div class="product-info">
               <span class="product-brand">OTHER MARKET PROFILE</span>
@@ -602,7 +622,7 @@
 
           <article class="product-card" data-product="Versatile" data-category="tile-profile">
             <div class="product-image">
-              <img src="images/versatile.jpg" alt="MRM Versatile tile profile roofing" loading="lazy">
+              <img src="images/versatile.jpg" alt="MRM Versatile tile profile roofing" loading="lazy" decoding="async">
             </div>
             <div class="product-info">
               <span class="product-brand">MRM PRODUCT</span>
@@ -614,7 +634,7 @@
 
           <article class="product-card" data-product="Orientile" data-category="tile-profile">
             <div class="product-image">
-              <img src="images/orientile.jpg" alt="MRM Orientile roofing sheet" loading="lazy">
+              <img src="images/orientile.jpg" alt="MRM Orientile roofing sheet" loading="lazy" decoding="async">
             </div>
             <div class="product-info">
               <span class="product-brand">MRM PRODUCT</span>
@@ -626,7 +646,7 @@
 
           <article class="product-card" data-product="Elegantile" data-category="tile-profile">
             <div class="product-image">
-              <img src="images/elegantile.jpg" alt="MRM Elegantile tile-inspired roofing profile" loading="lazy">
+              <img src="images/elegantile.jpg" alt="MRM Elegantile tile-inspired roofing profile" loading="lazy" decoding="async">
             </div>
             <div class="product-info">
               <span class="product-brand">MRM PRODUCT</span>
@@ -638,7 +658,7 @@
 
           <article class="product-card" data-product="Roman Tile" data-category="tile-profile">
             <div class="product-image">
-              <img src="images/roman-tile.jpg" alt="Roman tile roofing profile" loading="lazy">
+              <img src="images/roman-tile.jpg" alt="Roman tile roofing profile" loading="lazy" decoding="async">
             </div>
             <div class="product-info">
               <span class="product-brand">OTHER MARKET PROFILE</span>
@@ -666,7 +686,7 @@
 
           <article class="product-card stone-product" data-product="Lifestile Waves" data-category="stone-coated" data-unit="piece">
             <div class="product-image">
-              <img src="images/lifestile-waves.jpg" alt="MRM Lifestile Waves stone-coated roofing" loading="lazy">
+              <img src="images/lifestile-waves.jpg" alt="MRM Lifestile Waves stone-coated roofing" loading="lazy" decoding="async">
             </div>
             <div class="product-info">
               <span class="product-brand">MRM PRODUCT</span>
@@ -678,7 +698,7 @@
 
           <article class="product-card stone-product" data-product="Lifestile Shingles" data-category="stone-coated" data-unit="piece">
             <div class="product-image">
-              <img src="images/lifestile-shingles.jpg" alt="MRM Lifestile Shingles stone-coated roofing" loading="lazy">
+              <img src="images/lifestile-shingles.jpg" alt="MRM Lifestile Shingles stone-coated roofing" loading="lazy" decoding="async">
             </div>
             <div class="product-info">
               <span class="product-brand">MRM PRODUCT</span>
@@ -690,7 +710,7 @@
 
           <article class="product-card stone-product" data-product="Lifestile Roman" data-category="stone-coated" data-unit="piece">
             <div class="product-image">
-              <img src="images/lifestile-roman.jpg" alt="MRM Lifestile Roman stone-coated roofing" loading="lazy">
+              <img src="images/lifestile-roman.jpg" alt="MRM Lifestile Roman stone-coated roofing" loading="lazy" decoding="async">
             </div>
             <div class="product-info">
               <span class="product-brand">MRM PRODUCT</span>
@@ -718,7 +738,7 @@
 
           <article class="product-card" data-product="Galsheet Resincot" data-category="corrugated">
             <div class="product-image">
-              <img src="images/galsheet-resincot.jpg" alt="MRM Galsheet Resincot corrugated roofing sheet" loading="lazy">
+              <img src="images/galsheet-resincot.jpg" alt="MRM Galsheet Resincot corrugated roofing sheet" loading="lazy" decoding="async">
             </div>
             <div class="product-info">
               <span class="product-brand">MRM PRODUCT</span>
@@ -730,7 +750,7 @@
 
           <article class="product-card" data-product="Unpainted Dumuzas" data-category="corrugated">
             <div class="product-image">
-              <img src="images/unpainted-dumuzas.jpg" alt="MRM Unpainted Dumuzas corrugated roofing sheet" loading="lazy">
+              <img src="images/unpainted-dumuzas.jpg" alt="MRM Unpainted Dumuzas corrugated roofing sheet" loading="lazy" decoding="async">
             </div>
             <div class="product-info">
               <span class="product-brand">MRM PRODUCT</span>
@@ -742,7 +762,7 @@
 
           <article class="product-card" data-product="Dumu Rangi Corrugated" data-category="corrugated">
             <div class="product-image">
-              <img src="images/dumu-rangi-corrugated.jpg" alt="MRM Dumu Rangi colour-coated corrugated roofing" loading="lazy">
+              <img src="images/dumu-rangi-corrugated.jpg" alt="MRM Dumu Rangi colour-coated corrugated roofing" loading="lazy" decoding="async">
             </div>
             <div class="product-info">
               <span class="product-brand">MRM PRODUCT</span>
@@ -771,7 +791,7 @@
 
           <article class="product-card" data-product="Saflok" data-category="concealed-fix">
             <div class="product-image">
-              <img src="images/saflok.jpg" alt="Saflok concealed-fix roofing profile" loading="lazy">
+              <img src="images/saflok.jpg" alt="Saflok concealed-fix roofing profile" loading="lazy" decoding="async">
             </div>
             <div class="product-info">
               <span class="product-brand">PROFILE LISTING</span>
@@ -783,7 +803,7 @@
 
           <article class="product-card" data-product="Safdeck" data-category="concealed-fix">
             <div class="product-image">
-              <img src="images/safdeck.jpg" alt="Safdeck roofing and cladding profile" loading="lazy">
+              <img src="images/safdeck.jpg" alt="Safdeck roofing and cladding profile" loading="lazy" decoding="async">
             </div>
             <div class="product-info">
               <span class="product-brand">PROFILE LISTING</span>
@@ -795,7 +815,7 @@
 
           <article class="product-card" data-product="Trimflute" data-category="concealed-fix">
             <div class="product-image">
-              <img src="images/trimflute.jpg" alt="Trimflute roofing profile" loading="lazy">
+              <img src="images/trimflute.jpg" alt="Trimflute roofing profile" loading="lazy" decoding="async">
             </div>
             <div class="product-info">
               <span class="product-brand">PROFILE LISTING</span>
@@ -807,7 +827,7 @@
 
           <article class="product-card" data-product="Tekdek" data-category="concealed-fix">
             <div class="product-image">
-              <img src="images/tekdek.jpg" alt="Tekdek industrial roofing profile" loading="lazy">
+              <img src="images/tekdek.jpg" alt="Tekdek industrial roofing profile" loading="lazy" decoding="async">
             </div>
             <div class="product-info">
               <span class="product-brand">PROFILE LISTING</span>
@@ -842,7 +862,7 @@
 
         <article class="accessory-card">
           <div class="accessory-image">
-            <img src="images/ridge-caps.jpg" alt="Roofing ridge caps and ridge fittings" loading="lazy">
+            <img src="images/ridge-caps.jpg" alt="Roofing ridge caps and ridge fittings" loading="lazy" decoding="async">
           </div>
           <h3>Ridge Caps</h3>
           <p>Standard, flat, curved and roll-top ridge options.</p>
@@ -851,7 +871,7 @@
 
         <article class="accessory-card">
           <div class="accessory-image">
-            <img src="images/valley-trays.jpg" alt="Roofing valley trays for water drainage" loading="lazy">
+            <img src="images/valley-trays.jpg" alt="Roofing valley trays for water drainage" loading="lazy" decoding="async">
           </div>
           <h3>Valley Trays</h3>
           <p>Roof valley components for water drainage.</p>
@@ -860,7 +880,7 @@
 
         <article class="accessory-card">
           <div class="accessory-image">
-            <img src="images/roof-flashings.jpg" alt="Roof flashings and roofing fittings" loading="lazy">
+            <img src="images/roof-flashings.jpg" alt="Roof flashings and roofing fittings" loading="lazy" decoding="async">
           </div>
           <h3>Roof Flashings</h3>
           <p>Side-wall, apron and barge flashing options.</p>
@@ -869,7 +889,7 @@
 
         <article class="accessory-card">
           <div class="accessory-image">
-            <img src="images/roofing-fasteners.jpg" alt="Roofing screws, nails, washers and fasteners" loading="lazy">
+            <img src="images/roofing-fasteners.jpg" alt="Roofing screws, nails, washers and fasteners" loading="lazy" decoding="async">
           </div>
           <h3>Roofing Fasteners</h3>
           <p>Roofing screws, nails, washers and fittings.</p>
@@ -878,7 +898,7 @@
 
         <article class="accessory-card">
           <div class="accessory-image">
-            <img src="images/gutters-downpipes.jpg" alt="Roof gutters and rainwater downpipes" loading="lazy">
+            <img src="images/gutters-downpipes.jpg" alt="Roof gutters and rainwater downpipes" loading="lazy" decoding="async">
           </div>
           <h3>Gutters & Downpipes</h3>
           <p>Rainwater collection and drainage components.</p>
@@ -887,7 +907,7 @@
 
         <article class="accessory-card">
           <div class="accessory-image">
-            <img src="images/roof-ventilation.jpg" alt="Roof ventilation components" loading="lazy">
+            <img src="images/roof-ventilation.jpg" alt="Roof ventilation components" loading="lazy" decoding="async">
           </div>
           <h3>Roof Ventilation</h3>
           <p>Selected roof ventilation components.</p>
@@ -951,7 +971,7 @@
 
         <button class="project-category-card" type="button" data-gallery-open="residential">
           <div class="project-category-image">
-            <img src="images/residential-1.jpg" alt="Residential roofing project" loading="lazy">
+            <img src="images/residential-1.jpg" alt="Residential roofing project" loading="lazy" decoding="async">
           </div>
           <div class="project-category-info">
             <h3>Residential Roofing</h3>
@@ -962,7 +982,7 @@
 
         <button class="project-category-card" type="button" data-gallery-open="modern">
           <div class="project-category-image">
-            <img src="images/modern-1.jpg" alt="Modern architectural roof design" loading="lazy">
+            <img src="images/modern-1.jpg" alt="Modern architectural roof design" loading="lazy" decoding="async">
           </div>
           <div class="project-category-info">
             <h3>Modern Roof Designs</h3>
@@ -973,7 +993,7 @@
 
         <button class="project-category-card" type="button" data-gallery-open="commercial">
           <div class="project-category-image">
-            <img src="images/commercial-1.jpg" alt="Commercial and industrial roofing project" loading="lazy">
+            <img src="images/commercial-1.jpg" alt="Commercial and industrial roofing project" loading="lazy" decoding="async">
           </div>
           <div class="project-category-info">
             <h3>Commercial Roofing</h3>
